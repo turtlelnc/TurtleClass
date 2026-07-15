@@ -22,6 +22,12 @@ int run_server_tests() {
     REQUIRE_SERVER(server.health().ok);
     REQUIRE_SERVER(server.health().confirmed_events == 0);
 
+    EventGroup unregistered{EventGroupId{"group-unregistered"}, ClassId{"class1"}, {server_points("unregistered", 1, "device-a", 1)}};
+    REQUIRE_SERVER(!server.upload(unregistered).accepted);
+    REQUIRE_SERVER(server.register_device(DeviceId{"device-a"}, "Classroom Windows PC"));
+    REQUIRE_SERVER(server.register_device(DeviceId{"device-b"}, "Teacher Windows PC"));
+    REQUIRE_SERVER(server.health().active_devices == 2);
+
     EventGroup first{EventGroupId{"group-e1"}, ClassId{"class1"}, {server_points("e1", 1, "device-a", 5)}};
     auto uploaded = server.upload(first);
     REQUIRE_SERVER(uploaded.accepted);
@@ -45,6 +51,9 @@ int run_server_tests() {
     EventGroup blocked{EventGroupId{"group-e4"}, ClassId{"class1"}, {server_points("e4", 2, "device-b", 1)}};
     REQUIRE_SERVER(!server.upload(blocked).accepted);
     server.set_maintenance_mode(false);
+    REQUIRE_SERVER(server.revoke_device(DeviceId{"device-b"}));
+    EventGroup revoked{EventGroupId{"group-e5"}, ClassId{"class1"}, {server_points("e5", 2, "device-b", 1)}};
+    REQUIRE_SERVER(!server.upload(revoked).accepted);
 
     server.create_backup();
     const auto export_path = root / "exports" / "events.tsv";

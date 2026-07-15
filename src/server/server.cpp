@@ -119,6 +119,40 @@ void FileEventLog::create_rolling_backup(std::size_t max_backups) const {
     for (std::size_t i = max_backups; i < entries.size(); ++i) std::filesystem::remove(entries[i]);
 }
 
+
+bool DeviceRegistry::register_device(DeviceId device_id, std::string display_name, std::int64_t registered_time_unix) {
+    if (device_id.empty() || display_name.empty()) return false;
+    auto& device = devices_[device_id];
+    device.device_id = std::move(device_id);
+    device.display_name = std::move(display_name);
+    device.registered_time_unix = registered_time_unix;
+    device.active = true;
+    return true;
+}
+
+bool DeviceRegistry::revoke_device(const DeviceId& device_id) {
+    auto found = devices_.find(device_id);
+    if (found == devices_.end()) return false;
+    found->second.active = false;
+    return true;
+}
+
+bool DeviceRegistry::is_active(const DeviceId& device_id) const {
+    auto found = devices_.find(device_id);
+    return found != devices_.end() && found->second.active;
+}
+
+std::size_t DeviceRegistry::active_count() const {
+    return static_cast<std::size_t>(std::ranges::count_if(devices_, [](const auto& item) { return item.second.active; }));
+}
+
+std::vector<DeviceRegistration> DeviceRegistry::devices() const {
+    std::vector<DeviceRegistration> out;
+    out.reserve(devices_.size());
+    for (const auto& [_, device] : devices_) out.push_back(device);
+    return out;
+}
+
 ServerBackend::ServerBackend(ClassId class_id, FileEventLog storage) : class_id_(std::move(class_id)), storage_(std::move(storage)) {}
 
 void ServerBackend::load_from_disk() {
@@ -128,6 +162,10 @@ void ServerBackend::load_from_disk() {
     next_server_sequence_ = 1;
     for (const auto& record : records_) index_record(record);
 }
+
+bool ServerBackend::register_device(DeviceId device_id, std::string display_name) { return devices_.register_device(std::move(device_id), std::move(display_name), now_unix()); }
+bool ServerBackend::revoke_device(const DeviceId& device_id) { return devices_.revoke_device(device_id); }
+std::vector<DeviceRegistration> ServerBackend::devices() const { return devices_.devices(); }
 
 UploadResult ServerBackend::upload(const EventGroup& group) {
     UploadResult result;
@@ -167,6 +205,7 @@ ServerHealth ServerBackend::health() const {
     ServerHealth health;
     health.maintenance_mode = maintenance_mode_;
     health.confirmed_events = records_.size();
+    health.active_devices = devices_.active_count();
     health.last_server_sequence = next_server_sequence_ - 1;
     if (class_id_.empty()) { health.ok = false; health.errors.push_back("class id is not configured"); }
     return health;
@@ -181,6 +220,7 @@ std::vector<std::string> ServerBackend::validate_upload(const EventGroup& group)
     std::vector<std::string> errors = append.errors;
     if (group.class_id != class_id_) errors.push_back("event group class id does not match server class id");
     for (const auto& event : group.events) {
+        if (!devices_.is_active(event.device_id)) errors.push_back("device is not registered or has been revoked");
         if (event_sequences_.contains(event.event_id)) errors.push_back("event id already committed");
         const auto last = last_device_sequences_.find(event.device_id);
         if (last != last_device_sequences_.end() && event.device_local_sequence <= last->second) errors.push_back("device local sequence is not newer than last accepted sequence");

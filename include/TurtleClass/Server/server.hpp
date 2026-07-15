@@ -6,6 +6,7 @@
 #include <filesystem>
 #include <map>
 #include <optional>
+#include <set>
 #include <string>
 #include <vector>
 
@@ -35,8 +36,28 @@ struct ServerHealth {
     bool ok = true;
     bool maintenance_mode = false;
     std::size_t confirmed_events = 0;
+    std::size_t active_devices = 0;
     std::int64_t last_server_sequence = 0;
     std::vector<std::string> errors;
+};
+
+struct DeviceRegistration {
+    DeviceId device_id;
+    std::string display_name;
+    std::int64_t registered_time_unix = 0;
+    bool active = true;
+};
+
+class DeviceRegistry {
+public:
+    bool register_device(DeviceId device_id, std::string display_name, std::int64_t registered_time_unix);
+    bool revoke_device(const DeviceId& device_id);
+    [[nodiscard]] bool is_active(const DeviceId& device_id) const;
+    [[nodiscard]] std::size_t active_count() const;
+    [[nodiscard]] std::vector<DeviceRegistration> devices() const;
+
+private:
+    std::map<DeviceId, DeviceRegistration> devices_;
 };
 
 class FileEventLog {
@@ -60,6 +81,9 @@ public:
     ServerBackend(ClassId class_id, FileEventLog storage);
 
     void load_from_disk();
+    bool register_device(DeviceId device_id, std::string display_name);
+    bool revoke_device(const DeviceId& device_id);
+    [[nodiscard]] std::vector<DeviceRegistration> devices() const;
     [[nodiscard]] UploadResult upload(const EventGroup& group);
     [[nodiscard]] std::vector<ServerEventRecord> download_after(std::int64_t server_sequence) const;
     [[nodiscard]] ServerHealth health() const;
@@ -75,6 +99,7 @@ private:
     std::vector<ServerEventRecord> records_;
     std::map<EventId, std::int64_t> event_sequences_;
     std::map<DeviceId, std::int64_t> last_device_sequences_;
+    DeviceRegistry devices_;
 
     [[nodiscard]] std::vector<std::string> validate_upload(const EventGroup& group) const;
     void index_record(const ServerEventRecord& record);
