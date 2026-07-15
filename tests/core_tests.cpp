@@ -9,7 +9,7 @@ using namespace turtleclass::core;
 #define REQUIRE(expr) do { if (!(expr)) { std::cerr << "FAIL " << __FILE__ << ':' << __LINE__ << " expected " #expr "\n"; return EXIT_FAILURE; } } while (false)
 
 static DomainEvent points(std::string id, int delta, std::string student = "s1") {
-    return {EventId{id}, EventGroupId{"g" + id}, StudentId{student}, DeviceId{"d1"}, 1, EventType::PointsAdjusted, delta, 0, std::nullopt};
+    return {EventId{id}, ClassId{"class1"}, EventGroupId{"g" + id}, StudentId{student}, DeviceId{"d1"}, 1, EventType::PointsAdjusted, delta, 0, 1, "", std::nullopt};
 }
 static StudentState project(const RuleSet& rules, std::vector<DomainEvent> events) { return StateProjector{rules}.replay(events).at(StudentId{"s1"}); }
 
@@ -28,7 +28,7 @@ int main() {
     REQUIRE(s.level_index == 0 && s.points_in_level == -5);
     s = project(rules, {points("e8", -5), points("e9", 8)});
     REQUIRE(s.level_index == 0 && s.points_in_level == 3);
-    s = project(rules, {points("e10", 10), DomainEvent{EventId{"b1"}, EventGroupId{"gb1"}, StudentId{"s1"}, DeviceId{"d1"}, 2, EventType::BadgeAdjusted, 0, -2, std::nullopt}});
+    s = project(rules, {points("e10", 10), DomainEvent{EventId{"b1"}, ClassId{"class1"}, EventGroupId{"gb1"}, StudentId{"s1"}, DeviceId{"d1"}, 2, EventType::BadgeAdjusted, 0, -2, 1, "", std::nullopt}});
     REQUIRE(s.badges == -1);
 
     RuleSet changed = rules; changed.levels[0].points_to_next = 5;
@@ -41,7 +41,7 @@ int main() {
 
     InMemoryEventStore store;
     DomainService service{store};
-    EventGroup group{EventGroupId{"grp"}, {DomainEvent{EventId{"a"}, EventGroupId{"grp"}, StudentId{"s1"}, DeviceId{"d1"}, 1, EventType::PointsAdjusted, 10, 0, std::nullopt}, DomainEvent{EventId{"b"}, EventGroupId{"grp"}, StudentId{"s1"}, DeviceId{"d1"}, 2, EventType::BadgeAdjusted, 0, 3, std::nullopt}}};
+    EventGroup group{EventGroupId{"grp"}, ClassId{"class1"}, {DomainEvent{EventId{"a"}, ClassId{"class1"}, EventGroupId{"grp"}, StudentId{"s1"}, DeviceId{"d1"}, 1, EventType::PointsAdjusted, 10, 0, 1, "", std::nullopt}, DomainEvent{EventId{"b"}, ClassId{"class1"}, EventGroupId{"grp"}, StudentId{"s1"}, DeviceId{"d1"}, 2, EventType::BadgeAdjusted, 0, 3, 1, "", std::nullopt}}};
     REQUIRE(service.commit(group));
     REQUIRE(!service.commit(group));
     auto undo = service.make_compensation_group(EventGroupId{"undo"}, group, DeviceId{"d1"}, 3);
@@ -53,13 +53,17 @@ int main() {
     states = StateProjector{rules}.replay(store.events());
     REQUIRE(states.at(StudentId{"s1"}).level_index == 1 && states.at(StudentId{"s1"}).badges == 4);
 
-    EventGroup bad{EventGroupId{"bad"}, {DomainEvent{EventId{"c"}, EventGroupId{"bad"}, StudentId{"s1"}, DeviceId{"d1"}, 1, EventType::PointsAdjusted, 1, 0, std::nullopt}, DomainEvent{EventId{"c"}, EventGroupId{"bad"}, StudentId{"s1"}, DeviceId{"d1"}, 2, EventType::PointsAdjusted, 1, 0, std::nullopt}}};
+    EventGroup bad{EventGroupId{"bad"}, ClassId{"class1"}, {DomainEvent{EventId{"c"}, ClassId{"class1"}, EventGroupId{"bad"}, StudentId{"s1"}, DeviceId{"d1"}, 1, EventType::PointsAdjusted, 1, 0, 1, "", std::nullopt}, DomainEvent{EventId{"c"}, ClassId{"class1"}, EventGroupId{"bad"}, StudentId{"s1"}, DeviceId{"d1"}, 2, EventType::PointsAdjusted, 1, 0, 1, "", std::nullopt}}};
     auto before = store.events().size();
     REQUIRE(!service.commit(bad));
     REQUIRE(store.events().size() == before);
     REQUIRE(ConsistencyChecker{}.check(store.events(), rules).ok);
     auto dup = store.events(); dup.push_back(dup.front());
     REQUIRE(!ConsistencyChecker{}.check(dup, rules).ok);
+    RuleSet invalid = rules; invalid.levels[0].points_to_next = 0;
+    REQUIRE(!ConsistencyChecker{}.check(store.events(), invalid).ok);
+    EventGroup wrong_class{EventGroupId{"wrong"}, ClassId{"class1"}, {DomainEvent{EventId{"wrong-event"}, ClassId{"class2"}, EventGroupId{"wrong"}, StudentId{"s1"}, DeviceId{"d1"}, 1, EventType::PointsAdjusted, 1, 0, 1, "", std::nullopt}}};
+    REQUIRE(!service.commit(wrong_class));
     std::cout << "All TurtleClass core tests passed\n";
     return EXIT_SUCCESS;
 }

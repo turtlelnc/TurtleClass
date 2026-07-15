@@ -1,5 +1,6 @@
 #pragma once
 
+#include <compare>
 #include <cstdint>
 #include <map>
 #include <optional>
@@ -21,20 +22,42 @@ private:
     std::string value_;
 };
 
-struct StudentTag; struct DeviceTag; struct EventTag; struct EventGroupTag; struct RuleSetTag;
+struct ClassTag; struct StudentTag; struct DeviceTag; struct EventTag; struct EventGroupTag; struct RuleSetTag;
+using ClassId = StrongId<ClassTag>;
 using StudentId = StrongId<StudentTag>;
 using DeviceId = StrongId<DeviceTag>;
 using EventId = StrongId<EventTag>;
 using EventGroupId = StrongId<EventGroupTag>;
 using RuleSetId = StrongId<RuleSetTag>;
+using RuleVersion = std::int32_t;
 
-struct LevelRule { std::string name; int points_to_next = 0; int badges_on_enter = 0; };
-struct RuleSet { RuleSetId id; int version = 1; std::vector<LevelRule> levels; static RuleSet default_rules(); };
-struct StudentState { int level_index = 0; int points_in_level = 0; int badges = 0; bool frozen = false; };
+struct LevelRule {
+    std::string name;
+    int points_to_next = 0;
+    int badges_on_enter = 0;
+};
+
+struct RuleSet {
+    RuleSetId id;
+    RuleVersion version = 1;
+    std::vector<LevelRule> levels;
+
+    static RuleSet default_rules();
+    [[nodiscard]] std::vector<std::string> validate() const;
+};
+
+struct StudentState {
+    int level_index = 0;
+    int points_in_level = 0;
+    int badges = 0;
+    bool frozen = false;
+};
 
 enum class EventType { PointsAdjusted, BadgeAdjusted, Compensation };
+
 struct DomainEvent {
     EventId event_id;
+    ClassId class_id;
     EventGroupId event_group_id;
     StudentId target_id;
     DeviceId device_id;
@@ -42,13 +65,26 @@ struct DomainEvent {
     EventType event_type = EventType::PointsAdjusted;
     int points_delta = 0;
     int badge_delta = 0;
+    RuleVersion rule_version = 1;
+    std::string previous_hash;
     std::optional<EventId> compensates_event_id;
 };
-struct EventGroup { EventGroupId group_id; std::vector<DomainEvent> events; };
+
+struct EventGroup {
+    EventGroupId group_id;
+    ClassId class_id;
+    std::vector<DomainEvent> events;
+};
+
+struct AppendResult {
+    bool ok = false;
+    std::vector<std::string> errors;
+    explicit operator bool() const noexcept { return ok; }
+};
 
 class InMemoryEventStore {
 public:
-    bool append_group(const EventGroup& group);
+    AppendResult append_group(const EventGroup& group);
     [[nodiscard]] const std::vector<DomainEvent>& events() const noexcept;
 private:
     std::vector<DomainEvent> events_;
@@ -68,8 +104,8 @@ private:
 class DomainService {
 public:
     explicit DomainService(InMemoryEventStore& store);
-    bool commit(const EventGroup& group);
-    EventGroup make_compensation_group(EventGroupId group_id, const EventGroup& original, DeviceId device, std::int64_t sequence_start) const;
+    AppendResult commit(const EventGroup& group);
+    [[nodiscard]] EventGroup make_compensation_group(EventGroupId group_id, const EventGroup& original, DeviceId device, std::int64_t sequence_start) const;
 private:
     InMemoryEventStore& store_;
 };
@@ -80,6 +116,7 @@ public:
     [[nodiscard]] ConsistencyReport check(const std::vector<DomainEvent>& events, const RuleSet& rules) const;
 };
 
+extern template class StrongId<ClassTag>;
 extern template class StrongId<StudentTag>;
 extern template class StrongId<DeviceTag>;
 extern template class StrongId<EventTag>;
