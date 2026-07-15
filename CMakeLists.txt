@@ -11,8 +11,15 @@ add_library(TurtleClassCore
 target_include_directories(TurtleClassCore PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_compile_features(TurtleClassCore PUBLIC cxx_std_23)
 
-add_executable(TurtleClassTests tests/core_tests.cpp)
-target_link_libraries(TurtleClassTests PRIVATE TurtleClassCore)
+add_library(TurtleClassServer
+    src/server/server.cpp
+)
+target_include_directories(TurtleClassServer PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(TurtleClassServer PUBLIC TurtleClassCore)
+target_compile_features(TurtleClassServer PUBLIC cxx_std_23)
+
+add_executable(TurtleClassTests tests/core_tests.cpp tests/server_tests.cpp)
+target_link_libraries(TurtleClassTests PRIVATE TurtleClassCore TurtleClassServer)
 
 enable_testing()
-add_test(NAME TurtleClassCoreTests COMMAND TurtleClassTests)
+add_test(NAME TurtleClassTests COMMAND TurtleClassTests)

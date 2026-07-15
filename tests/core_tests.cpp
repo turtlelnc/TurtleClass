@@ -13,6 +13,8 @@ static DomainEvent points(std::string id, int delta, std::string student = "s1")
 }
 static StudentState project(const RuleSet& rules, std::vector<DomainEvent> events) { return StateProjector{rules}.replay(events).at(StudentId{"s1"}); }
 
+int run_server_tests();
+
 int main() {
     auto rules = RuleSet::default_rules();
     REQUIRE(rules.levels.size() == 8);
@@ -65,5 +67,5 @@ int main() {
     EventGroup wrong_class{EventGroupId{"wrong"}, ClassId{"class1"}, {DomainEvent{EventId{"wrong-event"}, ClassId{"class2"}, EventGroupId{"wrong"}, StudentId{"s1"}, DeviceId{"d1"}, 1, EventType::PointsAdjusted, 1, 0, 1, "", std::nullopt}}};
     REQUIRE(!service.commit(wrong_class));
     std::cout << "All TurtleClass core tests passed\n";
-    return EXIT_SUCCESS;
+    return run_server_tests();
 }

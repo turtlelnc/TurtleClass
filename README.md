@@ -46,6 +46,19 @@ ctest --test-dir build --output-on-failure
 保留直接 g++ 编译方法，便于在简化环境或课堂服务器上快速验证核心逻辑：
 
 ```bash
-g++ -std=c++23 -Iinclude src/core/domain.cpp tests/core_tests.cpp -o turtleclass_core_tests
+g++ -std=c++23 -Iinclude src/core/domain.cpp src/server/server.cpp tests/core_tests.cpp tests/server_tests.cpp -o turtleclass_core_tests
 ./turtleclass_core_tests
 ```
+
+
+## Phase 2 服务器后端（当前增量）
+
+当前服务器后端仍是本地/测试用实现，不开放正式公网 API。已包含：
+
+- 文件事件日志 `events.tsv`。
+- 服务端全局序号与服务端时间。
+- 事件上传、幂等重复上传识别、设备本地序号检查。
+- `download_after` 增量下载。
+- 维护模式拒绝写入。
+- 数据导出与最多五份滚动备份。
+- 重启后从事件日志恢复索引。
