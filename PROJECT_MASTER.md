@@ -9,7 +9,7 @@
 | 项目名称 | TurtleClass |
 | 当前版本 | 0.2.0-server-alpha |
 | 当前阶段 | Phase 2：服务器端 alpha |
-| 当前状态 | Phase 2 后端 alpha；WinUI shell 已搭建 |
+| 当前状态 | Phase 2 后端 alpha；Windows C++ 桌面 UI shell 已搭建 |
 | 主要负责人 | Tom |
 | 测试负责人 | 吴汶轩 |
 | 服务端平台 | macOS |
@@ -534,7 +534,7 @@ AI 不可用时不得影响正常使用。
 - TurtleClass.Sync
 - TurtleClass.Server
 - TurtleClass.ClientSimulator
-- TurtleClass.WinUI
+- TurtleClass.WindowsDesktop
 - TurtleClass.Audit
 - TurtleClass.Tests
 
@@ -554,7 +554,7 @@ AI 不可用时不得影响正常使用。
 - 已建立 C++23 + CMake 工程骨架。
 - 已实现 TurtleClass.Core 领域模型、事件元数据、规则校验、内存事件仓库、状态投影、补偿撤销与一致性检查。
 - 已建立 TurtleClass.Server alpha：设备注册/撤销校验、文件事件日志、服务端序号、幂等上传、设备序号检查、增量下载、维护模式、导出、滚动备份和重启恢复。
-- 已新增 Windows-only WinUI 3 shell scaffold，用于后续 Phase 3 UI 集成；当前不接入正式同步协议，不复制 Core 业务计算。
+- 已新增 Windows-only C++ desktop UI shell scaffold，用于后续客户端 UI 集成；当前不接入正式同步协议，不复制 Core 业务计算，不使用 C#。
 - 已添加覆盖 Phase 1 最低集合以及规则无效、班级 ID 不一致等拒绝路径的无第三方依赖核心测试。
 - 已添加服务器后端测试，覆盖未注册设备拒绝、设备注册/撤销、上传、重复上传、乱序设备序号拒绝、增量下载、维护模式、导出、备份和重启恢复。
 - 保留 CMake 与直接 g++ 两种编译验证方式。
@@ -656,7 +656,7 @@ Codex 必须维护本节。
 | Sync | 本地上传下载协议 alpha | 10% | 幂等/增量下载测试通过 | Phase 2 |
 | Server | alpha 本地后端与设备校验已建立 | 25% | CMake/g++ 构建与服务器测试通过 | Phase 2 |
 | Client Simulator | 未开始 | 0% | 未验证 | Phase 2 |
-| WinUI | shell scaffold 已建立 | 5% | 结构检查，未在 Windows 构建 | Phase 3 |
+| Windows UI | C++ desktop shell scaffold 已建立 | 5% | 结构检查，未在 Windows 构建 | Phase 3 |
 | AI Audit | 未开始 | 0% | 未验证 | Phase 2 后期 |
 
 进度百分比只能基于已完成且已验证的任务，不得主观估计。

@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-namespace winrt::TurtleClass::WinUI::implementation {
+namespace turtleclass::windows_desktop {
 
 struct StudentDisplayState {
     std::wstring student_id;
@@ -20,12 +20,12 @@ struct QueueCommandResult {
 
 class StudentListViewModel {
 public:
-    void LoadDesignTimeStudents();
-    [[nodiscard]] const std::vector<StudentDisplayState>& Students() const noexcept;
-    [[nodiscard]] QueueCommandResult QueueTemporaryPoints(int points_delta);
+    void load_design_time_students();
+    [[nodiscard]] const std::vector<StudentDisplayState>& students() const noexcept;
+    [[nodiscard]] QueueCommandResult queue_temporary_points(std::size_t selected_index, int points_delta) const;
 
 private:
     std::vector<StudentDisplayState> students_;
 };
 
-} // namespace winrt::TurtleClass::WinUI::implementation
+} // namespace turtleclass::windows_desktop

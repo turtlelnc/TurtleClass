@@ -1,0 +1,7 @@
+#pragma once
+
+#define IDC_TURTLECLASS_WINDOW 100
+#define IDC_STUDENT_LIST 101
+#define IDC_POINTS_EDIT 102
+#define IDC_QUEUE_BUTTON 103
+#define IDC_STATUS_TEXT 104

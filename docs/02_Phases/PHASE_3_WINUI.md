@@ -57,8 +57,8 @@
 
 ## 当前进度
 
-- 已新增 `src/winui/TurtleClass.WinUI` Windows-only WinUI 3 shell scaffold。
-- 已包含 App、MainWindow、Package manifest、项目文件与简单 ViewModel 草稿。
+- 已新增 `src/winui/TurtleClass.WindowsDesktop` Windows-only native C++ desktop UI shell scaffold。
+- 已包含 Win32 entry point、MainWindow、Visual Studio C++ project、resource file 与简单 ViewModel 草稿。
 - 当前 UI 只展示占位学生状态并提交“命令意图”，不计算积分、等级或徽章。
 - 当前未接入正式 API、同步协议、离线队列持久化或管理员入口；这些仍等待 Phase 2 API/同步协议冻结。
-- 当前环境非 Windows，未执行 WinUI 实机构建。
+- 当前环境非 Windows，未执行 Windows 桌面 UI 实机构建。

@@ -47,5 +47,13 @@
 
 - 状态：开放
 - 背景：用户明确要求继续编写 WinUI 端，但 Phase 3 原前置条件要求 API v1 与同步协议 v1 冻结。
-- 临时处理：仅创建 Windows-only WinUI shell scaffold，不接入正式同步协议，不复制 Core 业务计算，不声明 Phase 3 完成。
-- 后续决策：在 API/同步协议冻结前，是否允许继续扩展 UI 视觉与本地命令队列原型？
+- 临时处理：仅创建 Windows-only C++ desktop UI shell scaffold，不接入正式同步协议，不复制 Core 业务计算，不声明 Phase 3 完成。
+- 后续决策：在 API/同步协议冻结前，是否允许继续扩展 C++ 桌面 UI 视觉与本地命令队列原型？
+
+
+## OQ-2026-07-17-WINDOWS-UI-TECH-CHOICE
+
+- 状态：临时决定
+- 背景：用户澄清 Windows UI 端应为 C++ 桌面应用 UI，不是基于 C# 的 WinUI 项目。
+- 临时处理：将原 WinUI 3 XAML scaffold 替换为 native C++ Win32 desktop scaffold，目录为 `src/winui/TurtleClass.WindowsDesktop`。
+- 后续决策：是否继续使用 Win32 原生控件，还是在 C++ 桌面框架中引入 WinUI 3/C++、WIL 或其他成熟 Windows UI 辅助库？
