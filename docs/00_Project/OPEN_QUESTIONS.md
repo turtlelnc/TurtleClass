@@ -41,3 +41,11 @@
 - 同程序但独立权限入口
 
 状态：未决定。
+
+
+## OQ-2026-07-17-WINUI-SCAFFOLD-BEFORE-API-FREEZE
+
+- 状态：开放
+- 背景：用户明确要求继续编写 WinUI 端，但 Phase 3 原前置条件要求 API v1 与同步协议 v1 冻结。
+- 临时处理：仅创建 Windows-only WinUI shell scaffold，不接入正式同步协议，不复制 Core 业务计算，不声明 Phase 3 完成。
+- 后续决策：在 API/同步协议冻结前，是否允许继续扩展 UI 视觉与本地命令队列原型？

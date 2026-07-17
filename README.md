@@ -62,3 +62,8 @@ g++ -std=c++23 -Iinclude src/core/domain.cpp src/server/server.cpp tests/core_te
 - 维护模式拒绝写入。
 - 数据导出与最多五份滚动备份。
 - 重启后从事件日志恢复索引。
+
+
+## Phase 3 WinUI scaffold
+
+`src/winui/TurtleClass.WinUI` contains a Windows-only WinUI 3 scaffold. It is not included in the cross-platform CMake build because it requires Windows, Visual Studio 2022, C++/WinRT, and the Windows App SDK. The scaffold is intentionally UI-shell only: it displays placeholder student state and queues command intent without calculating points, levels, or badges in UI code.
