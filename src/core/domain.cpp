@@ -8,7 +8,7 @@ template <typename Tag>
 StrongId<Tag>::StrongId(std::string value) : value_(std::move(value)) {}
 template <typename Tag> const std::string& StrongId<Tag>::value() const noexcept { return value_; }
 template <typename Tag> bool StrongId<Tag>::empty() const noexcept { return value_.empty(); }
-template class StrongId<ClassTag>; template class StrongId<StudentTag>; template class StrongId<DeviceTag>; template class StrongId<EventTag>; template class StrongId<EventGroupTag>; template class StrongId<RuleSetTag>;
+template class StrongId<ClassTag>; template class StrongId<StudentTag>; template class StrongId<DeviceTag>; template class StrongId<EventTag>; template class StrongId<EventGroupTag>; template class StrongId<RuleSetTag>; template class StrongId<AccountTag>; template class StrongId<AdminTag>;
 
 RuleSet RuleSet::default_rules() {
     return {RuleSetId{"default"}, 1, {{"Level 1", 10, 0}, {"Level 2", 20, 1}, {"Level 3", 30, 1}, {"Level 4", 40, 2}, {"Level 5", 50, 2}, {"Level 6", 60, 3}, {"Level 7", 70, 3}, {"Level 8", 0, 4}}};

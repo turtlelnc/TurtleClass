@@ -22,13 +22,15 @@ private:
     std::string value_;
 };
 
-struct ClassTag; struct StudentTag; struct DeviceTag; struct EventTag; struct EventGroupTag; struct RuleSetTag;
+struct ClassTag; struct StudentTag; struct DeviceTag; struct EventTag; struct EventGroupTag; struct RuleSetTag; struct AccountTag; struct AdminTag;
 using ClassId = StrongId<ClassTag>;
 using StudentId = StrongId<StudentTag>;
 using DeviceId = StrongId<DeviceTag>;
 using EventId = StrongId<EventTag>;
 using EventGroupId = StrongId<EventGroupTag>;
 using RuleSetId = StrongId<RuleSetTag>;
+using AccountId = StrongId<AccountTag>;
+using AdminId = StrongId<AdminTag>;
 using RuleVersion = std::int32_t;
 
 struct LevelRule {
@@ -122,5 +124,7 @@ extern template class StrongId<DeviceTag>;
 extern template class StrongId<EventTag>;
 extern template class StrongId<EventGroupTag>;
 extern template class StrongId<RuleSetTag>;
+extern template class StrongId<AccountTag>;
+extern template class StrongId<AdminTag>;
 
 } // namespace turtleclass::core
