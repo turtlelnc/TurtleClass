@@ -58,7 +58,24 @@
 ## 当前进度
 
 - 已新增 `src/winui/TurtleClass.WindowsDesktop` Windows-only native C++ desktop UI shell scaffold。
+
+## 当前进度
+
+- 已新增 `src/winui/TurtleClass.WindowsDesktop` Windows-only native C++ desktop UI shell scaffold。
 - 已包含 Win32 entry point、MainWindow、Visual Studio C++ project、resource file 与简单 ViewModel 草稿。
-- 当前 UI 只展示占位学生状态并提交“命令意图”，不计算积分、等级或徽章。
-- 当前未接入正式 API、同步协议、离线队列持久化或管理员入口；这些仍等待 Phase 2 API/同步协议冻结。
+- 当前 UI 只展示占位学生状态并提交"命令意图"，不计算积分、等级或徽章。
+- **Phase 3 M3 完成 (2026-07-19)**:
+  - ✅ HttpClient: WinHTTP 后端实现，支持 GET/POST 请求和 JWT 认证
+  - ✅ AuthenticationService: 真实 HTTP API 调用替换 placeholder，支持 /api/v1/auth/login
+  - ✅ SyncService: 离线事件队列和双向同步协议实现
+  - ✅ 字符串转换：UTF-8/UTF-16 跨平台转换 helpers
+  - ✅ 错误处理：网络错误、HTTP 状态码、冲突检测 (409)
+- 当前未实现：
+  - ⏳ 本地 SQLite 持久化（离线队列重启后保留）
+  - ⏳ 自动同步触发器（网络变化、定时、启动时）
+  - ⏳ 冲突提示 UI
+  - ⏳ 撤销操作 UI
+  - ⏳ 管理员模式入口
+  - ⏳ 安装程序制作（MSI/MSIX）
+  - ⏳ 低性能电脑实机测试
 - 当前环境非 Windows，未执行 Windows 桌面 UI 实机构建。
