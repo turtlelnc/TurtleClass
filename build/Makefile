@@ -263,6 +263,30 @@ src/server/accounts.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassServer.dir/build.make CMakeFiles/TurtleClassServer.dir/src/server/accounts.cpp.s
 .PHONY : src/server/accounts.cpp.s
 
+src/server/http_server.o: src/server/http_server.cpp.o
+.PHONY : src/server/http_server.o
+
+# target to build an object file
+src/server/http_server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassServer.dir/build.make CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.o
+.PHONY : src/server/http_server.cpp.o
+
+src/server/http_server.i: src/server/http_server.cpp.i
+.PHONY : src/server/http_server.i
+
+# target to preprocess a source file
+src/server/http_server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassServer.dir/build.make CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.i
+.PHONY : src/server/http_server.cpp.i
+
+src/server/http_server.s: src/server/http_server.cpp.s
+.PHONY : src/server/http_server.s
+
+# target to generate assembly for a file
+src/server/http_server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassServer.dir/build.make CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.s
+.PHONY : src/server/http_server.cpp.s
+
 src/server/server.o: src/server/server.cpp.o
 .PHONY : src/server/server.o
 
@@ -406,6 +430,9 @@ help:
 	@echo "... src/server/accounts.o"
 	@echo "... src/server/accounts.i"
 	@echo "... src/server/accounts.s"
+	@echo "... src/server/http_server.o"
+	@echo "... src/server/http_server.i"
+	@echo "... src/server/http_server.s"
 	@echo "... src/server/server.o"
 	@echo "... src/server/server.i"
 	@echo "... src/server/server.s"

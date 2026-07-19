@@ -111,11 +111,26 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspace/src/server/snapshot.cpp -o CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.s
 
+CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.o: CMakeFiles/TurtleClassServer.dir/flags.make
+CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.o: /workspace/src/server/http_server.cpp
+CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.o: CMakeFiles/TurtleClassServer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.o -MF CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.o.d -o CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.o -c /workspace/src/server/http_server.cpp
+
+CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspace/src/server/http_server.cpp > CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.i
+
+CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspace/src/server/http_server.cpp -o CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.s
+
 # Object files for target TurtleClassServer
 TurtleClassServer_OBJECTS = \
 "CMakeFiles/TurtleClassServer.dir/src/server/server.cpp.o" \
 "CMakeFiles/TurtleClassServer.dir/src/server/accounts.cpp.o" \
-"CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o"
+"CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o" \
+"CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.o"
 
 # External object files for target TurtleClassServer
 TurtleClassServer_EXTERNAL_OBJECTS =
@@ -123,9 +138,10 @@ TurtleClassServer_EXTERNAL_OBJECTS =
 libTurtleClassServer.a: CMakeFiles/TurtleClassServer.dir/src/server/server.cpp.o
 libTurtleClassServer.a: CMakeFiles/TurtleClassServer.dir/src/server/accounts.cpp.o
 libTurtleClassServer.a: CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o
+libTurtleClassServer.a: CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.o
 libTurtleClassServer.a: CMakeFiles/TurtleClassServer.dir/build.make
 libTurtleClassServer.a: CMakeFiles/TurtleClassServer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libTurtleClassServer.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libTurtleClassServer.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/TurtleClassServer.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TurtleClassServer.dir/link.txt --verbose=$(VERBOSE)
 

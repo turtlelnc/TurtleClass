@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/workspace/src/server/accounts.cpp" "CMakeFiles/TurtleClassServer.dir/src/server/accounts.cpp.o" "gcc" "CMakeFiles/TurtleClassServer.dir/src/server/accounts.cpp.o.d"
+  "/workspace/src/server/http_server.cpp" "CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.o" "gcc" "CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.o.d"
   "/workspace/src/server/server.cpp" "CMakeFiles/TurtleClassServer.dir/src/server/server.cpp.o" "gcc" "CMakeFiles/TurtleClassServer.dir/src/server/server.cpp.o.d"
   "/workspace/src/server/snapshot.cpp" "CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o" "gcc" "CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o.d"
   )

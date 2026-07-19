@@ -22,6 +22,7 @@ add_library(TurtleClassServer
     src/server/server.cpp
     src/server/accounts.cpp
     src/server/snapshot.cpp
+    src/server/http_server.cpp
 )
 target_include_directories(TurtleClassServer PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(TurtleClassServer PUBLIC TurtleClassCore)
