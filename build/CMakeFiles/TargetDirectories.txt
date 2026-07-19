@@ -4,6 +4,7 @@
 /workspace/build/CMakeFiles/TurtleClassStorage.dir
 /workspace/build/CMakeFiles/TurtleClassTests.dir
 /workspace/build/CMakeFiles/AccountTests.dir
+/workspace/build/CMakeFiles/SyncSimulator.dir
 /workspace/build/CMakeFiles/test.dir
 /workspace/build/CMakeFiles/edit_cache.dir
 /workspace/build/CMakeFiles/rebuild_cache.dir

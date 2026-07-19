@@ -172,6 +172,98 @@ CMakeFiles/TurtleClassServer.dir/src/server/accounts.cpp.o: /workspace/src/serve
   /usr/include/c++/12/bits/stl_vector.h \
   /usr/include/c++/12/bits/stl_bvector.h \
   /usr/include/c++/12/bits/vector.tcc \
+  /usr/include/sodium.h \
+  /usr/include/sodium/version.h \
+  /usr/include/sodium/export.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h \
+  /usr/include/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+  /usr/include/linux/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/sodium/core.h \
+  /usr/include/sodium/crypto_aead_aes256gcm.h \
+  /usr/include/sodium/crypto_aead_chacha20poly1305.h \
+  /usr/include/sodium/crypto_aead_xchacha20poly1305.h \
+  /usr/include/sodium/crypto_auth.h \
+  /usr/include/sodium/crypto_auth_hmacsha512256.h \
+  /usr/include/sodium/crypto_auth_hmacsha512.h \
+  /usr/include/sodium/crypto_hash_sha512.h \
+  /usr/include/c++/12/stdlib.h \
+  /usr/include/sodium/crypto_auth_hmacsha256.h \
+  /usr/include/sodium/crypto_hash_sha256.h \
+  /usr/include/sodium/crypto_auth_hmacsha512.h \
+  /usr/include/sodium/crypto_auth_hmacsha512256.h \
+  /usr/include/sodium/crypto_box.h \
+  /usr/include/sodium/crypto_box_curve25519xsalsa20poly1305.h \
+  /usr/include/sodium/crypto_stream_xsalsa20.h \
+  /usr/include/sodium/crypto_box_curve25519xsalsa20poly1305.h \
+  /usr/include/sodium/crypto_core_hsalsa20.h \
+  /usr/include/sodium/crypto_core_hchacha20.h \
+  /usr/include/sodium/crypto_core_salsa20.h \
+  /usr/include/sodium/crypto_core_salsa2012.h \
+  /usr/include/sodium/crypto_core_salsa208.h \
+  /usr/include/sodium/crypto_generichash.h \
+  /usr/include/sodium/crypto_generichash_blake2b.h \
+  /usr/include/sodium/crypto_generichash_blake2b.h \
+  /usr/include/sodium/crypto_hash.h \
+  /usr/include/sodium/crypto_hash_sha256.h \
+  /usr/include/sodium/crypto_hash_sha512.h \
+  /usr/include/sodium/crypto_kdf.h \
+  /usr/include/sodium/crypto_kdf_blake2b.h \
+  /usr/include/sodium/crypto_kdf_blake2b.h \
+  /usr/include/sodium/crypto_kx.h \
+  /usr/include/sodium/crypto_onetimeauth.h \
+  /usr/include/sodium/crypto_onetimeauth_poly1305.h \
+  /usr/include/sodium/crypto_onetimeauth_poly1305.h \
+  /usr/include/sodium/crypto_pwhash.h \
+  /usr/include/sodium/crypto_pwhash_argon2i.h \
+  /usr/include/sodium/crypto_pwhash_argon2id.h \
+  /usr/include/sodium/crypto_pwhash_argon2i.h \
+  /usr/include/sodium/crypto_scalarmult.h \
+  /usr/include/sodium/crypto_scalarmult_curve25519.h \
+  /usr/include/sodium/crypto_scalarmult_curve25519.h \
+  /usr/include/sodium/crypto_secretbox.h \
+  /usr/include/sodium/crypto_secretbox_xsalsa20poly1305.h \
+  /usr/include/sodium/crypto_secretbox_xsalsa20poly1305.h \
+  /usr/include/sodium/crypto_secretstream_xchacha20poly1305.h \
+  /usr/include/sodium/crypto_aead_xchacha20poly1305.h \
+  /usr/include/sodium/crypto_stream_chacha20.h \
+  /usr/include/sodium/crypto_shorthash.h \
+  /usr/include/sodium/crypto_shorthash_siphash24.h \
+  /usr/include/sodium/crypto_shorthash_siphash24.h \
+  /usr/include/sodium/crypto_sign.h \
+  /usr/include/sodium/crypto_sign_ed25519.h \
+  /usr/include/sodium/crypto_sign_ed25519.h \
+  /usr/include/sodium/crypto_stream.h \
+  /usr/include/sodium/crypto_stream_chacha20.h \
+  /usr/include/sodium/crypto_stream_salsa20.h \
+  /usr/include/sodium/crypto_stream_xsalsa20.h \
+  /usr/include/sodium/crypto_verify_16.h \
+  /usr/include/sodium/crypto_verify_32.h \
+  /usr/include/sodium/crypto_verify_64.h \
+  /usr/include/sodium/randombytes.h \
+  /usr/include/sodium/randombytes_internal_random.h \
+  /usr/include/sodium/randombytes.h \
+  /usr/include/sodium/randombytes_sysrandom.h \
+  /usr/include/sodium/runtime.h \
+  /usr/include/sodium/utils.h \
+  /usr/include/sodium/crypto_box_curve25519xchacha20poly1305.h \
+  /usr/include/sodium/crypto_stream_xchacha20.h \
+  /usr/include/sodium/crypto_core_ed25519.h \
+  /usr/include/sodium/crypto_core_ristretto255.h \
+  /usr/include/sodium/crypto_scalarmult_ed25519.h \
+  /usr/include/sodium/crypto_scalarmult_ristretto255.h \
+  /usr/include/sodium/crypto_secretbox_xchacha20poly1305.h \
+  /usr/include/sodium/crypto_pwhash_scryptsalsa208sha256.h \
+  /usr/include/sodium/crypto_stream_salsa2012.h \
+  /usr/include/sodium/crypto_stream_salsa208.h \
+  /usr/include/sodium/crypto_stream_xchacha20.h \
+  /usr/include/argon2.h \
   /usr/include/c++/12/chrono \
   /usr/include/c++/12/bits/chrono.h \
   /usr/include/c++/12/ratio \
@@ -197,7 +289,6 @@ CMakeFiles/TurtleClassServer.dir/src/server/accounts.cpp.o: /workspace/src/serve
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/setjmp.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
-  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/c++/12/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/c++/12/bits/locale_classes.h \
@@ -241,7 +332,559 @@ CMakeFiles/TurtleClassServer.dir/src/server/accounts.cpp.o: /workspace/src/serve
   /usr/include/c++/12/bits/ranges_algobase.h \
   /usr/include/c++/12/bits/ranges_util.h \
   /usr/include/c++/12/pstl/glue_algorithm_defs.h \
-  /usr/include/c++/12/pstl/execution_defs.h
+  /usr/include/c++/12/pstl/execution_defs.h \
+  /usr/include/c++/12/random \
+  /usr/include/c++/12/cmath \
+  /usr/include/math.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+  /usr/include/c++/12/bits/specfun.h \
+  /usr/include/c++/12/tr1/gamma.tcc \
+  /usr/include/c++/12/tr1/special_function_util.h \
+  /usr/include/c++/12/tr1/bessel_function.tcc \
+  /usr/include/c++/12/tr1/beta_function.tcc \
+  /usr/include/c++/12/tr1/ell_integral.tcc \
+  /usr/include/c++/12/tr1/exp_integral.tcc \
+  /usr/include/c++/12/tr1/hypergeometric.tcc \
+  /usr/include/c++/12/tr1/legendre_function.tcc \
+  /usr/include/c++/12/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/12/tr1/poly_hermite.tcc \
+  /usr/include/c++/12/tr1/poly_laguerre.tcc \
+  /usr/include/c++/12/tr1/riemann_zeta.tcc \
+  /usr/include/c++/12/bits/random.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/opt_random.h \
+  /usr/include/c++/12/bits/random.tcc \
+  /usr/include/c++/12/numeric \
+  /usr/include/c++/12/bits/stl_numeric.h \
+  /usr/include/c++/12/bit \
+  /usr/include/c++/12/pstl/glue_numeric_defs.h \
+  /usr/include/c++/12/cstring \
+  /usr/include/string.h \
+  /usr/include/strings.h
+
+CMakeFiles/TurtleClassServer.dir/src/server/database.cpp.o: /workspace/src/server/database.cpp \
+  /usr/include/stdc-predef.h \
+  /workspace/src/server/database.hpp \
+  /usr/include/c++/12/string \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/cpu_defines.h \
+  /usr/include/c++/12/pstl/pstl_config.h \
+  /usr/include/c++/12/bits/stringfwd.h \
+  /usr/include/c++/12/bits/memoryfwd.h \
+  /usr/include/c++/12/bits/char_traits.h \
+  /usr/include/c++/12/bits/postypes.h \
+  /usr/include/c++/12/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/c++/12/type_traits \
+  /usr/include/c++/12/compare \
+  /usr/include/c++/12/concepts \
+  /usr/include/c++/12/bits/stl_construct.h \
+  /usr/include/c++/12/new \
+  /usr/include/c++/12/bits/exception.h \
+  /usr/include/c++/12/bits/move.h \
+  /usr/include/c++/12/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12/bits/iterator_concepts.h \
+  /usr/include/c++/12/bits/ptr_traits.h \
+  /usr/include/c++/12/bits/ranges_cmp.h \
+  /usr/include/c++/12/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12/bits/concept_check.h \
+  /usr/include/c++/12/debug/assertions.h \
+  /usr/include/c++/12/cstdint \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/x86_64-linux-gnu/bits/types.h \
+  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+  /usr/include/x86_64-linux-gnu/bits/time64.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+  /usr/include/c++/12/bits/allocator.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/c++allocator.h \
+  /usr/include/c++/12/bits/new_allocator.h \
+  /usr/include/c++/12/bits/functexcept.h \
+  /usr/include/c++/12/bits/exception_defines.h \
+  /usr/include/c++/12/bits/cpp_type_traits.h \
+  /usr/include/c++/12/bits/localefwd.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/c++locale.h \
+  /usr/include/c++/12/clocale \
+  /usr/include/locale.h \
+  /usr/include/x86_64-linux-gnu/bits/locale.h \
+  /usr/include/c++/12/iosfwd \
+  /usr/include/c++/12/cctype \
+  /usr/include/ctype.h \
+  /usr/include/x86_64-linux-gnu/bits/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/c++/12/bits/ostream_insert.h \
+  /usr/include/c++/12/bits/cxxabi_forced.h \
+  /usr/include/c++/12/bits/stl_iterator.h \
+  /usr/include/c++/12/ext/type_traits.h \
+  /usr/include/c++/12/bits/stl_function.h \
+  /usr/include/c++/12/backward/binders.h \
+  /usr/include/c++/12/ext/numeric_traits.h \
+  /usr/include/c++/12/bits/stl_algobase.h \
+  /usr/include/c++/12/bits/stl_pair.h \
+  /usr/include/c++/12/bits/utility.h \
+  /usr/include/c++/12/debug/debug.h \
+  /usr/include/c++/12/bits/predefined_ops.h \
+  /usr/include/c++/12/bits/refwrap.h \
+  /usr/include/c++/12/bits/invoke.h \
+  /usr/include/c++/12/bits/range_access.h \
+  /usr/include/c++/12/initializer_list \
+  /usr/include/c++/12/bits/basic_string.h \
+  /usr/include/c++/12/ext/alloc_traits.h \
+  /usr/include/c++/12/bits/alloc_traits.h \
+  /usr/include/c++/12/string_view \
+  /usr/include/c++/12/bits/functional_hash.h \
+  /usr/include/c++/12/bits/hash_bytes.h \
+  /usr/include/c++/12/bits/ranges_base.h \
+  /usr/include/c++/12/bits/max_size_type.h \
+  /usr/include/c++/12/numbers \
+  /usr/include/c++/12/bits/string_view.tcc \
+  /usr/include/c++/12/ext/string_conversions.h \
+  /usr/include/c++/12/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+  /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
+  /usr/include/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/sys/select.h \
+  /usr/include/x86_64-linux-gnu/bits/select.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/c++/12/bits/std_abs.h \
+  /usr/include/c++/12/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/c++/12/cerrno \
+  /usr/include/errno.h \
+  /usr/include/x86_64-linux-gnu/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
+  /usr/include/c++/12/bits/charconv.h \
+  /usr/include/c++/12/bits/basic_string.tcc \
+  /usr/include/c++/12/vector \
+  /usr/include/c++/12/bits/stl_uninitialized.h \
+  /usr/include/c++/12/bits/stl_vector.h \
+  /usr/include/c++/12/bits/stl_bvector.h \
+  /usr/include/c++/12/bits/vector.tcc \
+  /usr/include/c++/12/optional \
+  /usr/include/c++/12/exception \
+  /usr/include/c++/12/bits/exception_ptr.h \
+  /usr/include/c++/12/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12/typeinfo \
+  /usr/include/c++/12/bits/nested_exception.h \
+  /usr/include/c++/12/bits/enable_special_members.h \
+  /usr/include/c++/12/memory \
+  /usr/include/c++/12/bits/stl_tempbuf.h \
+  /usr/include/c++/12/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/12/bits/align.h \
+  /usr/include/c++/12/bit \
+  /usr/include/c++/12/bits/uses_allocator.h \
+  /usr/include/c++/12/bits/unique_ptr.h \
+  /usr/include/c++/12/tuple \
+  /usr/include/c++/12/ostream \
+  /usr/include/c++/12/ios \
+  /usr/include/c++/12/bits/ios_base.h \
+  /usr/include/c++/12/ext/atomicity.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/gthr.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/x86_64-linux-gnu/bits/sched.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
+  /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/x86_64-linux-gnu/bits/time.h \
+  /usr/include/x86_64-linux-gnu/bits/timex.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/c++/12/bits/locale_classes.h \
+  /usr/include/c++/12/bits/locale_classes.tcc \
+  /usr/include/c++/12/system_error \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/error_constants.h \
+  /usr/include/c++/12/stdexcept \
+  /usr/include/c++/12/streambuf \
+  /usr/include/c++/12/bits/streambuf.tcc \
+  /usr/include/c++/12/bits/basic_ios.h \
+  /usr/include/c++/12/bits/locale_facets.h \
+  /usr/include/c++/12/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/ctype_base.h \
+  /usr/include/c++/12/bits/streambuf_iterator.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/ctype_inline.h \
+  /usr/include/c++/12/bits/locale_facets.tcc \
+  /usr/include/c++/12/bits/basic_ios.tcc \
+  /usr/include/c++/12/bits/ostream.tcc \
+  /usr/include/c++/12/bits/shared_ptr.h \
+  /usr/include/c++/12/bits/shared_ptr_base.h \
+  /usr/include/c++/12/bits/allocated_ptr.h \
+  /usr/include/c++/12/ext/aligned_buffer.h \
+  /usr/include/c++/12/ext/concurrence.h \
+  /usr/include/c++/12/bits/shared_ptr_atomic.h \
+  /usr/include/c++/12/bits/atomic_base.h \
+  /usr/include/c++/12/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12/bits/atomic_wait.h \
+  /usr/include/c++/12/climits \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h \
+  /usr/include/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+  /usr/include/linux/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/unistd.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+  /usr/include/linux/close_range.h \
+  /usr/include/syscall.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
+  /usr/include/c++/12/bits/std_mutex.h \
+  /usr/include/c++/12/backward/auto_ptr.h \
+  /usr/include/c++/12/bits/ranges_uninitialized.h \
+  /usr/include/c++/12/bits/ranges_algobase.h \
+  /usr/include/c++/12/bits/uses_allocator_args.h \
+  /usr/include/c++/12/pstl/glue_memory_defs.h \
+  /usr/include/c++/12/pstl/execution_defs.h \
+  /usr/include/sqlite3.h \
+  /usr/include/c++/12/fstream \
+  /usr/include/c++/12/istream \
+  /usr/include/c++/12/bits/istream.tcc \
+  /usr/include/c++/12/bits/codecvt.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h \
+  /usr/include/c++/12/bits/fstream.tcc \
+  /usr/include/c++/12/sstream \
+  /usr/include/c++/12/bits/sstream.tcc \
+  /usr/include/c++/12/iostream
+
+CMakeFiles/TurtleClassServer.dir/src/server/exception_report.cpp.o: /workspace/src/server/exception_report.cpp \
+  /usr/include/stdc-predef.h \
+  /workspace/src/server/exception_report.hpp \
+  /usr/include/c++/12/string \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/cpu_defines.h \
+  /usr/include/c++/12/pstl/pstl_config.h \
+  /usr/include/c++/12/bits/stringfwd.h \
+  /usr/include/c++/12/bits/memoryfwd.h \
+  /usr/include/c++/12/bits/char_traits.h \
+  /usr/include/c++/12/bits/postypes.h \
+  /usr/include/c++/12/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/c++/12/type_traits \
+  /usr/include/c++/12/compare \
+  /usr/include/c++/12/concepts \
+  /usr/include/c++/12/bits/stl_construct.h \
+  /usr/include/c++/12/new \
+  /usr/include/c++/12/bits/exception.h \
+  /usr/include/c++/12/bits/move.h \
+  /usr/include/c++/12/bits/stl_iterator_base_types.h \
+  /usr/include/c++/12/bits/iterator_concepts.h \
+  /usr/include/c++/12/bits/ptr_traits.h \
+  /usr/include/c++/12/bits/ranges_cmp.h \
+  /usr/include/c++/12/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/12/bits/concept_check.h \
+  /usr/include/c++/12/debug/assertions.h \
+  /usr/include/c++/12/cstdint \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/x86_64-linux-gnu/bits/types.h \
+  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+  /usr/include/x86_64-linux-gnu/bits/time64.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+  /usr/include/c++/12/bits/allocator.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/c++allocator.h \
+  /usr/include/c++/12/bits/new_allocator.h \
+  /usr/include/c++/12/bits/functexcept.h \
+  /usr/include/c++/12/bits/exception_defines.h \
+  /usr/include/c++/12/bits/cpp_type_traits.h \
+  /usr/include/c++/12/bits/localefwd.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/c++locale.h \
+  /usr/include/c++/12/clocale \
+  /usr/include/locale.h \
+  /usr/include/x86_64-linux-gnu/bits/locale.h \
+  /usr/include/c++/12/iosfwd \
+  /usr/include/c++/12/cctype \
+  /usr/include/ctype.h \
+  /usr/include/x86_64-linux-gnu/bits/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/c++/12/bits/ostream_insert.h \
+  /usr/include/c++/12/bits/cxxabi_forced.h \
+  /usr/include/c++/12/bits/stl_iterator.h \
+  /usr/include/c++/12/ext/type_traits.h \
+  /usr/include/c++/12/bits/stl_function.h \
+  /usr/include/c++/12/backward/binders.h \
+  /usr/include/c++/12/ext/numeric_traits.h \
+  /usr/include/c++/12/bits/stl_algobase.h \
+  /usr/include/c++/12/bits/stl_pair.h \
+  /usr/include/c++/12/bits/utility.h \
+  /usr/include/c++/12/debug/debug.h \
+  /usr/include/c++/12/bits/predefined_ops.h \
+  /usr/include/c++/12/bits/refwrap.h \
+  /usr/include/c++/12/bits/invoke.h \
+  /usr/include/c++/12/bits/range_access.h \
+  /usr/include/c++/12/initializer_list \
+  /usr/include/c++/12/bits/basic_string.h \
+  /usr/include/c++/12/ext/alloc_traits.h \
+  /usr/include/c++/12/bits/alloc_traits.h \
+  /usr/include/c++/12/string_view \
+  /usr/include/c++/12/bits/functional_hash.h \
+  /usr/include/c++/12/bits/hash_bytes.h \
+  /usr/include/c++/12/bits/ranges_base.h \
+  /usr/include/c++/12/bits/max_size_type.h \
+  /usr/include/c++/12/numbers \
+  /usr/include/c++/12/bits/string_view.tcc \
+  /usr/include/c++/12/ext/string_conversions.h \
+  /usr/include/c++/12/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+  /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
+  /usr/include/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/sys/select.h \
+  /usr/include/x86_64-linux-gnu/bits/select.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/c++/12/bits/std_abs.h \
+  /usr/include/c++/12/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/c++/12/cerrno \
+  /usr/include/errno.h \
+  /usr/include/x86_64-linux-gnu/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
+  /usr/include/c++/12/bits/charconv.h \
+  /usr/include/c++/12/bits/basic_string.tcc \
+  /usr/include/c++/12/vector \
+  /usr/include/c++/12/bits/stl_uninitialized.h \
+  /usr/include/c++/12/bits/stl_vector.h \
+  /usr/include/c++/12/bits/stl_bvector.h \
+  /usr/include/c++/12/bits/vector.tcc \
+  /usr/include/c++/12/mutex \
+  /usr/include/c++/12/tuple \
+  /usr/include/c++/12/bits/uses_allocator.h \
+  /usr/include/c++/12/exception \
+  /usr/include/c++/12/bits/exception_ptr.h \
+  /usr/include/c++/12/bits/cxxabi_init_exception.h \
+  /usr/include/c++/12/typeinfo \
+  /usr/include/c++/12/bits/nested_exception.h \
+  /usr/include/c++/12/system_error \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/error_constants.h \
+  /usr/include/c++/12/stdexcept \
+  /usr/include/c++/12/bits/chrono.h \
+  /usr/include/c++/12/ratio \
+  /usr/include/c++/12/limits \
+  /usr/include/c++/12/ctime \
+  /usr/include/time.h \
+  /usr/include/x86_64-linux-gnu/bits/time.h \
+  /usr/include/x86_64-linux-gnu/bits/timex.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+  /usr/include/c++/12/bits/parse_numbers.h \
+  /usr/include/c++/12/bits/std_mutex.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/gthr.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/x86_64-linux-gnu/bits/sched.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
+  /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
+  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
+  /usr/include/c++/12/bits/unique_lock.h \
+  /usr/include/c++/12/ext/atomicity.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/c++/12/chrono \
+  /usr/include/c++/12/sstream \
+  /usr/include/c++/12/istream \
+  /usr/include/c++/12/ios \
+  /usr/include/c++/12/bits/ios_base.h \
+  /usr/include/c++/12/bits/locale_classes.h \
+  /usr/include/c++/12/bits/locale_classes.tcc \
+  /usr/include/c++/12/streambuf \
+  /usr/include/c++/12/bits/streambuf.tcc \
+  /usr/include/c++/12/bits/basic_ios.h \
+  /usr/include/c++/12/bits/locale_facets.h \
+  /usr/include/c++/12/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/ctype_base.h \
+  /usr/include/c++/12/bits/streambuf_iterator.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/ctype_inline.h \
+  /usr/include/c++/12/bits/locale_facets.tcc \
+  /usr/include/c++/12/bits/basic_ios.tcc \
+  /usr/include/c++/12/ostream \
+  /usr/include/c++/12/bits/ostream.tcc \
+  /usr/include/c++/12/bits/istream.tcc \
+  /usr/include/c++/12/bits/sstream.tcc \
+  /usr/include/c++/12/map \
+  /usr/include/c++/12/bits/stl_tree.h \
+  /usr/include/c++/12/ext/aligned_buffer.h \
+  /usr/include/c++/12/bits/node_handle.h \
+  /usr/include/c++/12/bits/stl_map.h \
+  /usr/include/c++/12/bits/stl_multimap.h \
+  /usr/include/c++/12/bits/erase_if.h \
+  /usr/include/c++/12/algorithm \
+  /usr/include/c++/12/bits/stl_algo.h \
+  /usr/include/c++/12/bits/algorithmfwd.h \
+  /usr/include/c++/12/bits/stl_heap.h \
+  /usr/include/c++/12/bits/stl_tempbuf.h \
+  /usr/include/c++/12/bits/uniform_int_dist.h \
+  /usr/include/c++/12/bits/ranges_algo.h \
+  /usr/include/c++/12/bits/ranges_algobase.h \
+  /usr/include/c++/12/bits/ranges_util.h \
+  /usr/include/c++/12/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/12/pstl/execution_defs.h \
+  /usr/include/c++/12/iostream \
+  /usr/include/c++/12/random \
+  /usr/include/c++/12/cmath \
+  /usr/include/math.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+  /usr/include/c++/12/bits/specfun.h \
+  /usr/include/c++/12/tr1/gamma.tcc \
+  /usr/include/c++/12/tr1/special_function_util.h \
+  /usr/include/c++/12/tr1/bessel_function.tcc \
+  /usr/include/c++/12/tr1/beta_function.tcc \
+  /usr/include/c++/12/tr1/ell_integral.tcc \
+  /usr/include/c++/12/tr1/exp_integral.tcc \
+  /usr/include/c++/12/tr1/hypergeometric.tcc \
+  /usr/include/c++/12/tr1/legendre_function.tcc \
+  /usr/include/c++/12/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/12/tr1/poly_hermite.tcc \
+  /usr/include/c++/12/tr1/poly_laguerre.tcc \
+  /usr/include/c++/12/tr1/riemann_zeta.tcc \
+  /usr/include/c++/12/bits/random.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/opt_random.h \
+  /usr/include/c++/12/bits/random.tcc \
+  /usr/include/c++/12/numeric \
+  /usr/include/c++/12/bits/stl_numeric.h \
+  /usr/include/c++/12/bit \
+  /usr/include/c++/12/pstl/glue_numeric_defs.h \
+  /usr/include/c++/12/set \
+  /usr/include/c++/12/bits/stl_set.h \
+  /usr/include/c++/12/bits/stl_multiset.h
 
 CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.o: /workspace/src/server/http_server.cpp \
   /usr/include/stdc-predef.h \
@@ -1060,11 +1703,99 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
   /usr/include/c++/12/pstl/glue_algorithm_defs.h
 
 
+/workspace/src/server/server.cpp:
+
+/usr/include/c++/12/array:
+
+/usr/include/c++/12/bits/unordered_map.h:
+
+/usr/include/c++/12/bits/hashtable_policy.h:
+
+/usr/include/c++/12/bits/hashtable.h:
+
+/usr/include/c++/12/unordered_map:
+
+/usr/include/c++/12/bits/fs_dir.h:
+
+/usr/include/c++/12/filesystem:
+
+/usr/include/c++/12/mutex:
+
+/workspace/src/server/exception_report.hpp:
+
+/workspace/src/server/exception_report.cpp:
+
+/usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h:
+
+/usr/include/c++/12/fstream:
+
+/usr/include/sqlite3.h:
+
+/workspace/src/server/http_server.cpp:
+
+/usr/include/c++/12/pstl/glue_memory_defs.h:
+
+/usr/include/c++/12/bits/uses_allocator_args.h:
+
+/workspace/include/TurtleClass/Server/snapshot.hpp:
+
+/usr/include/c++/12/bits/ranges_uninitialized.h:
+
+/usr/include/c++/12/backward/auto_ptr.h:
+
+/usr/include/c++/12/bits/std_mutex.h:
+
+/usr/include/x86_64-linux-gnu/bits/syscall.h:
+
+/usr/include/x86_64-linux-gnu/asm/unistd_64.h:
+
+/usr/include/x86_64-linux-gnu/sys/syscall.h:
+
+/usr/include/c++/12/bits/move_only_function.h:
+
+/usr/include/syscall.h:
+
+/usr/include/c++/12/codecvt:
+
+/usr/include/linux/close_range.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
+
+/usr/include/x86_64-linux-gnu/bits/environments.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
+
+/usr/include/c++/12/climits:
+
+/usr/include/c++/12/bits/atomic_wait.h:
+
+/usr/include/c++/12/bits/atomic_lockfree_defines.h:
+
+/usr/include/c++/12/bits/shared_ptr_atomic.h:
+
+/usr/include/c++/12/ext/concurrence.h:
+
+/usr/include/c++/12/bits/shared_ptr_base.h:
+
+/usr/include/c++/12/bits/shared_ptr.h:
+
+/usr/include/c++/12/bits/unique_ptr.h:
+
+/usr/include/c++/12/bits/stl_raw_storage_iter.h:
+
+/workspace/src/server/database.hpp:
+
+/usr/include/strings.h:
+
+/usr/include/string.h:
+
 /usr/include/c++/12/pstl/glue_numeric_defs.h:
 
 /usr/include/c++/12/bits/stl_numeric.h:
 
-/usr/include/c++/12/numeric:
+/usr/include/c++/12/bits/fstream.tcc:
+
+/usr/include/x86_64-linux-gnu/c++/12/bits/opt_random.h:
 
 /usr/include/c++/12/tr1/poly_laguerre.tcc:
 
@@ -1082,15 +1813,9 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/c++/12/tr1/gamma.tcc:
 
-/usr/include/c++/12/bits/specfun.h:
-
 /usr/include/x86_64-linux-gnu/bits/iscanonical.h:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
-
-/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
-
-/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
 
 /usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
@@ -1098,33 +1823,81 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/x86_64-linux-gnu/bits/math-vector.h:
 
-/usr/include/x86_64-linux-gnu/c++/12/bits/opt_random.h:
+/usr/include/c++/12/pstl/execution_defs.h:
 
-/usr/include/c++/12/bits/fstream.tcc:
+/usr/include/c++/12/bits/ranges_algobase.h:
 
-/usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h:
+/usr/include/c++/12/bits/stl_tempbuf.h:
 
-/usr/include/c++/12/fstream:
+/usr/include/c++/12/bits/fs_ops.h:
 
-/workspace/src/server/server.cpp:
+/usr/include/c++/12/bits/stl_heap.h:
 
-/usr/include/c++/12/bits/mofunc_impl.h:
+/usr/include/c++/12/bits/stl_algo.h:
 
-/usr/include/c++/12/bits/move_only_function.h:
+/usr/include/c++/12/bits/random.tcc:
 
-/usr/include/c++/12/array:
+/usr/include/c++/12/algorithm:
 
-/usr/include/c++/12/bits/unordered_map.h:
+/usr/include/c++/12/bits/quoted_string.h:
 
-/usr/include/c++/12/bits/hashtable_policy.h:
+/usr/include/c++/12/bits/locale_facets_nonio.tcc:
 
-/usr/include/c++/12/bits/hashtable.h:
+/usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h:
 
-/usr/include/c++/12/unordered_map:
+/usr/include/c++/12/locale:
 
-/usr/include/c++/12/bits/std_function.h:
+/usr/include/c++/12/bits/ostream.tcc:
 
-/workspace/include/TurtleClass/Server/snapshot.hpp:
+/usr/include/c++/12/ostream:
+
+/usr/include/c++/12/tr1/riemann_zeta.tcc:
+
+/usr/include/c++/12/bits/basic_ios.tcc:
+
+/usr/include/c++/12/bits/locale_facets.tcc:
+
+/usr/include/c++/12/bits/streambuf_iterator.h:
+
+/usr/include/c++/12/bits/atomic_base.h:
+
+/usr/include/x86_64-linux-gnu/c++/12/bits/ctype_base.h:
+
+/usr/include/c++/12/bits/align.h:
+
+/usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
+
+/usr/include/c++/12/tr1/hypergeometric.tcc:
+
+/usr/include/c++/12/cwctype:
+
+/usr/include/c++/12/bits/streambuf.tcc:
+
+/usr/include/c++/12/stdexcept:
+
+/usr/include/c++/12/bits/locale_classes.tcc:
+
+/usr/include/c++/12/bits/locale_classes.h:
+
+/usr/include/x86_64-linux-gnu/sys/single_threaded.h:
+
+/usr/include/c++/12/bits/random.h:
+
+/usr/include/x86_64-linux-gnu/bits/sched.h:
+
+/workspace/include/TurtleClass/Server/http_server.hpp:
+
+/usr/include/x86_64-linux-gnu/c++/12/bits/gthr.h:
+
+/usr/include/c++/12/ios:
+
+/usr/include/c++/12/istream:
+
+/usr/include/c++/12/memory:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
@@ -1132,11 +1905,11 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/stdlib.h:
 
+/usr/include/c++/12/bits/locale_facets.h:
+
+/usr/include/c++/12/string_view:
+
 /usr/include/c++/12/cctype:
-
-/usr/include/c++/12/istream:
-
-/usr/include/c++/12/stdexcept:
 
 /usr/include/c++/12/bits/basic_string.h:
 
@@ -1149,6 +1922,10 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
 /usr/include/x86_64-linux-gnu/bits/locale.h:
+
+/usr/include/c++/12/pstl/glue_algorithm_defs.h:
+
+/usr/include/c++/12/bits/localefwd.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
 
@@ -1170,19 +1947,23 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/c++/12/bits/postypes.h:
 
-/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
-
 /usr/include/c++/12/bits/stl_multiset.h:
 
 /usr/include/x86_64-linux-gnu/c++/12/bits/c++config.h:
 
 /usr/include/c++/12/bits/concept_check.h:
 
+/usr/include/c++/12/bits/ios_base.h:
+
+/usr/include/c++/12/set:
+
 /usr/include/c++/12/bits/ranges_base.h:
 
 /usr/include/c++/12/bits/enable_special_members.h:
 
-/usr/include/c++/12/optional:
+/usr/include/c++/12/bits/allocated_ptr.h:
+
+/usr/include/c++/12/bits/nested_exception.h:
 
 /usr/include/c++/12/bits/allocator.h:
 
@@ -1192,13 +1973,23 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/c++/12/bits/range_access.h:
 
+/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
+
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+
+/usr/include/time.h:
+
+/usr/include/c++/12/bits/fs_fwd.h:
+
+/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
+
+/usr/include/sodium/crypto_hash_sha512.h:
+
 /usr/include/c++/12/bits/uses_allocator.h:
 
-/usr/include/c++/12/string_view:
+/usr/include/pthread.h:
 
-/usr/include/c++/12/bits/locale_facets.h:
-
-/usr/include/c++/12/bits/ostream.tcc:
+/usr/include/c++/12/bits/stl_iterator_base_funcs.h:
 
 /usr/include/c++/12/bits/stl_map.h:
 
@@ -1210,9 +2001,11 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
-/usr/include/c++/12/cstdint:
+/usr/include/c++/12/ext/atomicity.h:
 
-/usr/include/c++/12/bits/stl_relops.h:
+/usr/include/c++/12/bits/node_handle.h:
+
+/usr/include/c++/12/cstdint:
 
 /usr/include/features-time64.h:
 
@@ -1220,15 +2013,13 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/wchar.h:
 
-/usr/include/c++/12/bits/alloc_traits.h:
-
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h:
+/usr/include/sodium/crypto_hash.h:
 
-/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+/usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h:
 
 /usr/include/c++/12/bits/chrono.h:
 
@@ -1246,6 +2037,8 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/asm-generic/errno-base.h:
 
+/usr/include/sodium/randombytes.h:
+
 /usr/include/c++/12/ext/alloc_traits.h:
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
@@ -1258,39 +2051,45 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/c++/12/typeinfo:
 
+/usr/include/c++/12/streambuf:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
 /usr/include/c++/12/exception:
 
 /usr/include/c++/12/debug/assertions.h:
 
 /usr/include/c++/12/bits/std_abs.h:
 
-/usr/include/c++/12/codecvt:
-
-/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
-
-/usr/include/c++/12/bits/fs_fwd.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
-
-/usr/include/time.h:
-
-/usr/include/x86_64-linux-gnu/bits/setjmp.h:
 
 /usr/include/c++/12/string:
 
-/usr/include/c++/12/bits/node_handle.h:
+/usr/include/c++/12/bit:
 
-/usr/include/c++/12/ext/atomicity.h:
+/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
 
 /usr/include/c++/12/initializer_list:
 
-/usr/include/c++/12/bits/shared_ptr.h:
+/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
 
 /usr/include/c++/12/bits/new_allocator.h:
+
+/usr/include/c++/12/bits/ranges_util.h:
+
+/usr/include/sodium/crypto_secretbox.h:
+
+/usr/include/sodium/crypto_pwhash_scryptsalsa208sha256.h:
 
 /usr/include/c++/12/bits/vector.tcc:
 
 /usr/include/c++/12/ext/string_conversions.h:
+
+/usr/include/c++/12/bits/alloc_traits.h:
+
+/usr/include/limits.h:
 
 /usr/include/stdc-predef.h:
 
@@ -1308,23 +2107,25 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/c++/12/bits/functional_hash.h:
 
-/usr/include/stdio.h:
-
-/usr/include/c++/12/type_traits:
+/usr/include/sodium/crypto_auth_hmacsha256.h:
 
 /usr/include/x86_64-linux-gnu/c++/12/bits/basic_file.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
 
+/usr/include/c++/12/type_traits:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
 /usr/include/features.h:
 
 /usr/include/c++/12/new:
 
-/usr/include/c++/12/bits/quoted_string.h:
-
 /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h:
 
 /usr/include/c++/12/bits/exception_ptr.h:
+
+/usr/include/c++/12/bits/unique_lock.h:
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
@@ -1334,25 +2135,39 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/c++/12/bits/stl_pair.h:
 
-/usr/include/c++/12/filesystem:
-
 /usr/include/c++/12/compare:
 
-/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+/usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h:
 
-/usr/include/c++/12/bits/locale_classes.tcc:
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/usr/include/c++/12/bits/codecvt.h:
+
+/usr/include/c++/12/bits/cpp_type_traits.h:
+
+/usr/include/sodium/core.h:
+
+/usr/include/c++/12/bits/locale_facets_nonio.h:
+
+/usr/include/c++/12/bits/exception.h:
 
 /usr/include/c++/12/bits/char_traits.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
 /usr/include/c++/12/bits/uniform_int_dist.h:
 
 /usr/include/c++/12/bits/ptr_traits.h:
 
+/usr/include/sodium/crypto_aead_chacha20poly1305.h:
+
+/usr/include/c++/12/bits/ranges_algo.h:
+
+/usr/include/sodium/crypto_shorthash.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
-
-/usr/include/c++/12/bits/random.tcc:
-
-/usr/include/c++/12/algorithm:
 
 /workspace/include/TurtleClass/Core/domain.hpp:
 
@@ -1360,13 +2175,23 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
+/usr/include/c++/12/cstring:
+
 /usr/include/ctype.h:
+
+/usr/include/sodium/crypto_sign_ed25519.h:
 
 /usr/include/c++/12/bits/stl_algobase.h:
 
+/usr/include/sodium/crypto_core_salsa2012.h:
+
+/workspace/include/TurtleClass/Server/server.hpp:
+
+/usr/include/c++/12/bits/stl_multimap.h:
+
 /usr/include/c++/12/bits/stl_function.h:
 
-/usr/include/c++/12/bits/ranges_util.h:
+/usr/include/sodium/crypto_scalarmult_curve25519.h:
 
 /usr/include/c++/12/bits/exception_defines.h:
 
@@ -1380,7 +2205,11 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/c++/12/bits/utility.h:
 
+/usr/include/sodium/export.h:
+
 /usr/include/c++/12/iosfwd:
+
+/usr/include/sodium/version.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
@@ -1388,7 +2217,7 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/c++/12/bits/stl_iterator_base_types.h:
 
-/usr/include/x86_64-linux-gnu/c++/12/bits/ctype_base.h:
+/usr/include/x86_64-linux-gnu/bits/uio_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
@@ -1396,27 +2225,23 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
-/usr/include/libintl.h:
-
-/usr/include/c++/12/bits/sstream.tcc:
-
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
 
 /usr/include/c++/12/numbers:
 
+/usr/include/c++/12/bits/mofunc_impl.h:
+
+/usr/include/sodium/crypto_auth_hmacsha512256.h:
+
 /usr/include/c++/12/bits/ranges_cmp.h:
-
-/usr/include/c++/12/bits/random.h:
-
-/usr/include/x86_64-linux-gnu/bits/sched.h:
-
-/usr/include/c++/12/bits/locale_facets.tcc:
 
 /usr/include/x86_64-linux-gnu/c++/12/bits/c++allocator.h:
 
-/usr/include/c++/12/bits/refwrap.h:
+/usr/include/x86_64-linux-gnu/asm/unistd.h:
 
 /usr/include/c++/12/cerrno:
+
+/usr/include/c++/12/stdlib.h:
 
 /usr/include/c++/12/bits/stl_construct.h:
 
@@ -1424,11 +2249,13 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/c++/12/debug/debug.h:
 
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+
+/usr/include/sodium/crypto_auth.h:
+
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
 /usr/include/c++/12/bits/stl_tree.h:
-
-/usr/include/c++/12/ios:
 
 /usr/include/c++/12/random:
 
@@ -1448,13 +2275,13 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/endian.h:
 
-/usr/include/c++/12/ext/concurrence.h:
+/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h:
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
-
-/usr/include/c++/12/locale:
 
 /usr/include/c++/12/ext/type_traits.h:
 
@@ -1472,17 +2299,21 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/x86_64-linux-gnu/asm/errno.h:
 
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+/usr/include/c++/12/numeric:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
+/usr/include/sodium/crypto_generichash_blake2b.h:
 
-/usr/include/c++/12/bits/fs_dir.h:
+/usr/include/sodium/crypto_pwhash_argon2i.h:
+
+/usr/include/sodium/crypto_verify_32.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
-/usr/include/c++/12/functional:
+/usr/include/x86_64-linux-gnu/c++/12/bits/gthr-default.h:
 
-/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+/usr/include/c++/12/cstdio:
+
+/usr/include/sodium/crypto_core_salsa20.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
@@ -1492,11 +2323,13 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
 
-/usr/include/x86_64-linux-gnu/c++/12/bits/cpu_defines.h:
-
 /usr/include/x86_64-linux-gnu/c++/12/bits/error_constants.h:
 
+/usr/include/x86_64-linux-gnu/c++/12/bits/cpu_defines.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
+
+/usr/include/sodium/crypto_auth_hmacsha512.h:
 
 /usr/include/errno.h:
 
@@ -1508,7 +2341,13 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
 
-/usr/include/c++/12/bits/ranges_algo.h:
+/usr/include/sodium/randombytes_sysrandom.h:
+
+/usr/include/c++/12/bits/istream.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
+
+/usr/include/asm-generic/errno.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
@@ -1516,154 +2355,176 @@ CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o: /workspace/src/serve
 
 /usr/include/c++/12/bits/charconv.h:
 
+/usr/include/sodium/crypto_secretbox_xchacha20poly1305.h:
+
 /usr/include/c++/12/bits/basic_string.tcc:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
 /usr/include/c++/12/vector:
 
-/usr/include/c++/12/bits/streambuf_iterator.h:
+/usr/include/c++/12/bits/locale_conv.h:
+
+/usr/include/c++/12/bits/stl_uninitialized.h:
 
 /usr/include/c++/12/bits/stl_vector.h:
 
-/workspace/src/server/http_server.cpp:
-
 /usr/include/c++/12/bits/stl_bvector.h:
+
+/usr/include/sodium.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/c++/12/bits/refwrap.h:
+
+/usr/include/sodium/crypto_verify_64.h:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
+
+/usr/include/sodium/crypto_aead_aes256gcm.h:
+
+/usr/include/c++/12/bits/algorithmfwd.h:
+
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+
+/usr/include/sodium/crypto_aead_xchacha20poly1305.h:
+
+/usr/include/sodium/crypto_kx.h:
+
+/usr/include/sodium/crypto_box_curve25519xchacha20poly1305.h:
+
+/usr/include/sodium/crypto_hash_sha256.h:
+
+/usr/include/sodium/crypto_box.h:
+
+/usr/include/sodium/crypto_secretstream_xchacha20poly1305.h:
+
+/usr/include/sodium/crypto_stream_xsalsa20.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
+
+/usr/include/sodium/crypto_core_hsalsa20.h:
+
+/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
+
+/usr/include/sodium/crypto_core_hchacha20.h:
+
+/usr/include/stdio.h:
+
+/usr/include/sodium/crypto_core_salsa208.h:
+
+/usr/include/sodium/crypto_generichash.h:
+
+/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+
+/usr/include/sodium/crypto_kdf.h:
+
+/usr/include/c++/12/functional:
+
+/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+
+/usr/include/sodium/crypto_box_curve25519xsalsa20poly1305.h:
+
+/usr/include/sodium/crypto_scalarmult.h:
+
+/usr/include/unistd.h:
+
+/usr/include/sodium/crypto_kdf_blake2b.h:
+
+/usr/include/c++/12/system_error:
+
+/usr/include/sodium/crypto_onetimeauth.h:
+
+/usr/include/c++/12/bits/std_function.h:
+
+/usr/include/sodium/crypto_scalarmult_ed25519.h:
+
+/usr/include/sodium/crypto_onetimeauth_poly1305.h:
+
+/usr/include/wctype.h:
+
+/usr/include/sched.h:
+
+/usr/include/sodium/crypto_pwhash.h:
+
+/workspace/src/server/database.cpp:
+
+/usr/include/sodium/crypto_pwhash_argon2id.h:
+
+/usr/include/c++/12/bits/specfun.h:
+
+/usr/include/sodium/crypto_secretbox_xsalsa20poly1305.h:
+
+/usr/include/libintl.h:
+
+/usr/include/c++/12/bits/sstream.tcc:
+
+/usr/include/sodium/crypto_stream_chacha20.h:
+
+/usr/include/sodium/crypto_shorthash_siphash24.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
+
+/usr/include/sodium/crypto_sign.h:
+
+/usr/include/sodium/crypto_stream.h:
+
+/usr/include/sodium/crypto_stream_salsa20.h:
+
+/usr/include/c++/12/bits/fs_path.h:
+
+/usr/include/locale.h:
+
+/usr/include/sodium/crypto_verify_16.h:
+
+/usr/include/sodium/randombytes_internal_random.h:
+
+/usr/include/sodium/runtime.h:
+
+/usr/include/sodium/utils.h:
+
+/usr/include/sodium/crypto_stream_xchacha20.h:
+
+/usr/include/c++/12/optional:
+
+/usr/include/sodium/crypto_core_ed25519.h:
+
+/usr/include/sodium/crypto_core_ristretto255.h:
+
+/usr/include/c++/12/bits/stl_relops.h:
+
+/usr/include/sodium/crypto_scalarmult_ristretto255.h:
+
+/usr/include/c++/12/bits/basic_ios.h:
+
+/usr/include/c++/12/sstream:
+
+/usr/include/sodium/crypto_stream_salsa2012.h:
+
+/usr/include/sodium/crypto_stream_salsa208.h:
+
+/usr/include/argon2.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
 /usr/include/c++/12/chrono:
 
-/usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h:
-
 /usr/include/c++/12/limits:
 
 /usr/include/c++/12/ctime:
 
-/usr/include/c++/12/tr1/riemann_zeta.tcc:
-
-/usr/include/c++/12/bits/basic_ios.tcc:
-
 /usr/include/x86_64-linux-gnu/bits/select.h:
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
+
+/usr/include/c++/12/iostream:
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/timex.h:
 
 /usr/include/c++/12/bits/parse_numbers.h:
-
-/usr/include/c++/12/bits/streambuf.tcc:
-
-/usr/include/c++/12/set:
-
-/usr/include/c++/12/bits/ios_base.h:
-
-/workspace/include/TurtleClass/Server/http_server.hpp:
-
-/usr/include/x86_64-linux-gnu/c++/12/bits/gthr.h:
-
-/usr/include/c++/12/cstdio:
-
-/usr/include/x86_64-linux-gnu/c++/12/bits/gthr-default.h:
-
-/usr/include/c++/12/bits/stl_iterator_base_funcs.h:
-
-/usr/include/pthread.h:
-
-/usr/include/wctype.h:
-
-/usr/include/sched.h:
-
-/usr/include/c++/12/bits/istream.tcc:
-
-/usr/include/asm-generic/errno.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
-
-/usr/include/x86_64-linux-gnu/sys/single_threaded.h:
-
-/usr/include/c++/12/bits/stl_multimap.h:
-
-/workspace/include/TurtleClass/Server/server.hpp:
-
-/usr/include/c++/12/bits/locale_classes.h:
-
-/usr/include/c++/12/system_error:
-
-/usr/include/x86_64-linux-gnu/sys/cdefs.h:
-
-/usr/include/c++/12/streambuf:
-
-/usr/include/c++/12/sstream:
-
-/usr/include/c++/12/bits/basic_ios.h:
-
-/usr/include/c++/12/pstl/execution_defs.h:
-
-/usr/include/c++/12/tr1/hypergeometric.tcc:
-
-/usr/include/c++/12/cwctype:
-
-/usr/include/c++/12/bits/unique_ptr.h:
-
-/usr/include/c++/12/ostream:
-
-/usr/include/c++/12/bits/exception.h:
-
-/usr/include/c++/12/bits/locale_facets_nonio.h:
-
-/usr/include/x86_64-linux-gnu/bits/wordsize.h:
-
-/usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h:
-
-/usr/include/c++/12/bits/cpp_type_traits.h:
-
-/usr/include/c++/12/bits/codecvt.h:
-
-/usr/include/c++/12/bits/locale_facets_nonio.tcc:
-
-/usr/include/c++/12/bits/stl_uninitialized.h:
-
-/usr/include/c++/12/bits/locale_conv.h:
-
-/usr/include/c++/12/bits/stl_algo.h:
-
-/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
-
-/usr/include/c++/12/bits/algorithmfwd.h:
-
-/usr/include/c++/12/bits/fs_ops.h:
-
-/usr/include/c++/12/bits/stl_heap.h:
-
-/usr/include/c++/12/bits/stl_tempbuf.h:
-
-/usr/include/c++/12/bits/ranges_algobase.h:
-
-/usr/include/c++/12/bits/localefwd.h:
-
-/usr/include/c++/12/pstl/glue_algorithm_defs.h:
-
-/usr/include/locale.h:
-
-/usr/include/c++/12/bits/fs_path.h:
-
-/usr/include/c++/12/bits/shared_ptr_base.h:
-
-/usr/include/c++/12/bits/nested_exception.h:
-
-/usr/include/c++/12/bits/allocated_ptr.h:
-
-/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
-
-/usr/include/c++/12/bit:
-
-/usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
-
-/usr/include/c++/12/bits/align.h:
