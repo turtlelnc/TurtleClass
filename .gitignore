@@ -1,0 +1,5 @@
+/build/
+/turtleclass_core_tests
+*.o
+*.a
+*.exe
