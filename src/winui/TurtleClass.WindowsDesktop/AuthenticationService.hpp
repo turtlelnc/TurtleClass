@@ -1,8 +1,11 @@
 #pragma once
 
+#include "HttpClient.hpp"
+
 #include <string>
 #include <optional>
 #include <functional>
+#include <memory>
 
 namespace turtleclass::windows_desktop {
 
@@ -21,6 +24,9 @@ struct LoginResult {
 
 class AuthenticationService {
 public:
+    AuthenticationService();
+    explicit AuthenticationService(const std::wstring& server_url);
+    
     [[nodiscard]] LoginResult login(const LoginCredentials& credentials);
     [[nodiscard]] bool is_logged_in() const noexcept;
     [[nodiscard]] const std::wstring& get_device_token() const noexcept;
@@ -36,6 +42,7 @@ private:
     std::wstring server_url_;
     bool logged_in_ = false;
     LoginStateChangedCallback login_state_changed_callback_;
+    std::unique_ptr<HttpClient> http_client_;
 };
 
 } // namespace turtleclass::windows_desktop
