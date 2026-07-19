@@ -3,8 +3,8 @@
 ## 当前状态
 
 - 当前阶段：**Phase 3 - Windows Client Alpha** (Phase 2 已完成)
-- 当前里程碑：**M3 - Windows 客户端登录、认证与基础 UI**
-- 代码状态：Core 100% 完成，Server 85% 完成，Windows UI 40% 完成
+- 当前里程碑：**M3 完成** - HttpClient、AuthenticationService、SyncService 已实现
+- 代码状态：Core 100% 完成，Server 85% 完成，Windows UI 60% 完成
 - 文档状态：所有架构决策已冻结，RFC 001-006 已创建
 - 阻塞问题：无
 - 最近更新时间：2026-07-19
@@ -39,16 +39,29 @@ Phase 2 已于 2026-07-19 完成，主要成果：
 - [x] JWT 设备令牌
 - [ ] 重放攻击防护完整实现（待完善）
 
-## Phase 3 进展（进行中）
+## Phase 3 进展（M3 已完成）
 
-### 已完成（40%）
+### 已完成（60%）
 - [x] WinUI 3 + C++/WinRT 架构决策（RFC-003）
 - [x] MVVM 模式采用
-- [x] AuthenticationService 实现
-  - 登录接口（班级代码 + 学生 ID + 密码）
-  - JWT 令牌管理
-  - 登出功能
+- [x] **HttpClient** (新增)
+  - WinHTTP 后端实现（Windows）
+  - GET/POST请求支持
+  - JWT Bearer Token 认证
+  - UTF-8/UTF-16字符串转换
+  - 错误处理和状态码返回
+- [x] **AuthenticationService** (更新)
+  - 真实 HTTP API 调用替换 placeholder
+  - /api/v1/auth/login端点集成
+  - 设备令牌自动管理
   - 登录状态回调
+  - 网络错误处理
+- [x] **SyncService** (新增)
+  - 离线事件队列
+  - 双向同步协议（Upload/Download/Bidirectional）
+  - 冲突检测（HTTP 409）
+  - SyncState 状态追踪
+  - 序列号管理防止重复同步
 - [x] MainWindow 更新
   - 登录表单（班级代码、学生 ID、密码输入框）
   - 登录/登出按钮
@@ -57,28 +70,26 @@ Phase 2 已于 2026-07-19 完成，主要成果：
   - 快速加减分队列（需登录后使用）
 - [x] 资源头文件更新（新控件 ID）
 - [x] README 文档更新
+- [x] PHASE_3_WINUI.md 更新
 
-### 待实现（60%）
-- [ ] 真实 HTTP API 调用（替换 placeholder）
+### 待实现（40%）
 - [ ] 本地 SQLite 存储（离线事件队列持久化）
-- [ ] 同步协议 v1 客户端实现
-- [ ] 自动同步机制
+- [ ] 自动同步触发器（网络变化、定时、启动时）
 - [ ] 冲突提示 UI
 - [ ] 撤销操作 UI
 - [ ] 管理员模式入口
-- [ ] 安装/升级流程
+- [ ] 安装/升级流程（MSI/MSIX）
 - [ ] 低性能电脑测试
 
 ## 下一步（Phase 3 优先级）
 
-1. **立即**: 将 AuthenticationService 的 placeholder 登录替换为真实 HTTP API 调用
-2. **高优先级**: 实现本地 SQLite 存储用于离线事件队列持久化
-3. **高优先级**: 实现同步协议 v1 客户端（事件上传/下载）
-4. **中优先级**: 添加自动同步触发器（网络变化、定时、启动时）
-5. **中优先级**: 实现冲突检测 UI 提示
-6. **中优先级**: 添加撤销操作 UI
-7. **低优先级**: 管理员模式切换和界面
-8. **低优先级**: 安装程序制作（MSI/MSIX）
+1. **高优先级**: 实现本地 SQLite 存储用于离线事件队列持久化
+2. **高优先级**: 添加自动同步触发器（网络变化、定时、启动时）
+3. **中优先级**: 实现冲突检测 UI 提示
+4. **中优先级**: 添加撤销操作 UI
+5. **中优先级**: 管理员模式切换和界面
+6. **低优先级**: 安装程序制作（MSI/MSIX）
+7. **低优先级**: 低性能电脑实机测试
 
 ## 关键架构决定（已全部冻结）
 
@@ -106,7 +117,9 @@ Phase 2 已于 2026-07-19 完成，主要成果：
 │   ├── server/         # Server 实现
 │   └── winui/          # Windows 客户端
 │       └── TurtleClass.WindowsDesktop/
-│           ├── AuthenticationService.*  # 认证服务
+│           ├── AuthenticationService.*  # 认证服务（含 HTTP 调用）
+│           ├── HttpClient.*            # HTTP 客户端（WinHTTP）
+│           ├── SyncService.*           # 同步服务（离线队列）
 │           ├── MainWindow.*             # 主窗口
 │           ├── StudentListViewModel.*   # 学生列表 VM
 │           └── resource.h               # 资源 ID
@@ -146,19 +159,21 @@ make -j4
 
 ## Git 提交历史摘要
 
+- `53a3040` Phase 3: Add SyncService for offline event queue and synchronization
+- `ac7bc5c` Phase 3: Implement HttpClient and real HTTP API authentication
 - `7780cd3` Phase 3: Add Windows client login and authentication
 - `8a60029` Phase 2: Add HTTP server API skeleton
 - `c3abf89` Fix account tests
-- `6e5b5a7` Merge pull request #3 from turtlelnc/work
 
 ## 已知问题与技术债务
 
-1. **AuthenticationService**: 当前使用 placeholder 登录逻辑，需要替换为真实 HTTP API 调用
-2. **设备表持久化**: 服务器设备表仍在内存中，重启后丢失
-3. **冲突解决**: 框架已搭建但完整流程未实现
+1. **SQLite 持久化**: SyncService 和离线队列当前在内存中，重启后丢失
+2. **自动同步**: 尚未实现网络变化监听、定时同步、启动时同步触发器
+3. **冲突解决**: 框架已搭建但完整流程和 UI 未实现
 4. **CLI 模拟器**: 尚未创建，无法测试双设备离线同步场景
 5. **日志保留**: 策略已定义但未实现自动清理
 6. **备份触发**: 策略已定义但未实现自动备份
+7. **JSON 解析**: 当前使用简化字符串解析，应替换为 proper JSON 库（如 nlohmann/json）
 
 ## 禁止事项
 
