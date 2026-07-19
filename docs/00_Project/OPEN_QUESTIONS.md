@@ -59,3 +59,22 @@
 - 临时处理：将原 WinUI 3 XAML scaffold 替换为 native C++ Win32 desktop scaffold，目录为 `src/winui/TurtleClass.WindowsDesktop`。
 - 后续决策：是否继续使用 Win32 原生控件，还是在 C++ 桌面框架中引入 WinUI 3/C++、WIL 或其他成熟 Windows UI 辅助库？
 - 最终决定：采用 WinUI 3 with C++/WinRT，提供现代化 UI 体验同时保持原生性能。
+
+---
+
+## 所有核心架构决策已通过 RFC 001-006 冻结
+
+| 问题 | 决定 | RFC | 状态 |
+|---|---|---|---|
+| 网络协议 | HTTP/HTTPS | RFC-001 | ✅ 已冻结 |
+| 存储格式 | JSON Lines + SQLite Meta | RFC-002 | ✅ 已冻结 |
+| WinUI 架构 | WinUI 3 + MVVM (C++) | RFC-003 | ✅ 已冻结 |
+| 管理员界面 | 同程序独立权限入口 | RFC-003 | ✅ 已冻结 |
+| 设备凭证 | Ed25519 密钥对 + JWT | RFC-004 | ✅ 已冻结 |
+| API 版本化 | URL 路径 /api/v1/ | RFC-005 | ✅ 已冻结 |
+| 冲突/快照 | 局部冻结 + 管理员解决 | RFC-006 | ✅ 已冻结 |
+
+剩余待决定事项（不影响当前开发）：
+- 日志保留周期（默认策略已实现，具体天数可配置）
+- 备份触发频率（默认每周，可手动触发）
+- 规则删除时对历史等级名称的展示方式（UI 层面细节）
