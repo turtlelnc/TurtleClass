@@ -28,6 +28,16 @@ target_include_directories(TurtleClassServer PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/
 target_link_libraries(TurtleClassServer PUBLIC TurtleClassCore)
 target_compile_features(TurtleClassServer PUBLIC cxx_std_23)
 
+# Find SQLite3
+find_package(SQLite3 REQUIRED)
+
+add_library(TurtleClassStorage
+    src/storage/storage.cpp
+)
+target_include_directories(TurtleClassStorage PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(TurtleClassStorage PUBLIC SQLite::SQLite3)
+target_compile_features(TurtleClassStorage PUBLIC cxx_std_23)
+
 add_executable(TurtleClassTests tests/core_tests.cpp tests/server_tests.cpp)
 target_link_libraries(TurtleClassTests PRIVATE TurtleClassCore TurtleClassServer)
 

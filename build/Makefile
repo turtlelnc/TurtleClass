@@ -166,6 +166,19 @@ TurtleClassServer/fast:
 .PHONY : TurtleClassServer/fast
 
 #=============================================================================
+# Target rules for targets named TurtleClassStorage
+
+# Build rule for target.
+TurtleClassStorage: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TurtleClassStorage
+.PHONY : TurtleClassStorage
+
+# fast build rule for target.
+TurtleClassStorage/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassStorage.dir/build.make CMakeFiles/TurtleClassStorage.dir/build
+.PHONY : TurtleClassStorage/fast
+
+#=============================================================================
 # Target rules for targets named TurtleClassTests
 
 # Build rule for target.
@@ -335,6 +348,30 @@ src/server/snapshot.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassServer.dir/build.make CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.s
 .PHONY : src/server/snapshot.cpp.s
 
+src/storage/storage.o: src/storage/storage.cpp.o
+.PHONY : src/storage/storage.o
+
+# target to build an object file
+src/storage/storage.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassStorage.dir/build.make CMakeFiles/TurtleClassStorage.dir/src/storage/storage.cpp.o
+.PHONY : src/storage/storage.cpp.o
+
+src/storage/storage.i: src/storage/storage.cpp.i
+.PHONY : src/storage/storage.i
+
+# target to preprocess a source file
+src/storage/storage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassStorage.dir/build.make CMakeFiles/TurtleClassStorage.dir/src/storage/storage.cpp.i
+.PHONY : src/storage/storage.cpp.i
+
+src/storage/storage.s: src/storage/storage.cpp.s
+.PHONY : src/storage/storage.s
+
+# target to generate assembly for a file
+src/storage/storage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassStorage.dir/build.make CMakeFiles/TurtleClassStorage.dir/src/storage/storage.cpp.s
+.PHONY : src/storage/storage.cpp.s
+
 tests/account_tests.o: tests/account_tests.cpp.o
 .PHONY : tests/account_tests.o
 
@@ -420,6 +457,7 @@ help:
 	@echo "... TurtleClassCore"
 	@echo "... TurtleClassSecurity"
 	@echo "... TurtleClassServer"
+	@echo "... TurtleClassStorage"
 	@echo "... TurtleClassTests"
 	@echo "... src/core/domain.o"
 	@echo "... src/core/domain.i"
@@ -439,6 +477,9 @@ help:
 	@echo "... src/server/snapshot.o"
 	@echo "... src/server/snapshot.i"
 	@echo "... src/server/snapshot.s"
+	@echo "... src/storage/storage.o"
+	@echo "... src/storage/storage.i"
+	@echo "... src/storage/storage.s"
 	@echo "... tests/account_tests.o"
 	@echo "... tests/account_tests.i"
 	@echo "... tests/account_tests.s"

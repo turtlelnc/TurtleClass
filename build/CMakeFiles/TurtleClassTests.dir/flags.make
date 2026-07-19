@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/workspace/include
 
-CXX_FLAGS = -std=c++23
+CXX_FLAGS = -O3 -DNDEBUG -std=c++23
 

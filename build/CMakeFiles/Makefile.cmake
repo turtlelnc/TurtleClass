@@ -17,6 +17,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "/usr/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake"
   "/usr/share/cmake-3.25/Modules/Compiler/GNU.cmake"
+  "/usr/share/cmake-3.25/Modules/FindPackageHandleStandardArgs.cmake"
+  "/usr/share/cmake-3.25/Modules/FindPackageMessage.cmake"
+  "/usr/share/cmake-3.25/Modules/FindSQLite3.cmake"
   "/usr/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake"
   "/usr/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake"
   "/usr/share/cmake-3.25/Modules/Platform/Linux.cmake"
@@ -42,6 +45,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/TurtleClassCore.dir/DependInfo.cmake"
   "CMakeFiles/TurtleClassSecurity.dir/DependInfo.cmake"
   "CMakeFiles/TurtleClassServer.dir/DependInfo.cmake"
+  "CMakeFiles/TurtleClassStorage.dir/DependInfo.cmake"
   "CMakeFiles/TurtleClassTests.dir/DependInfo.cmake"
   "CMakeFiles/AccountTests.dir/DependInfo.cmake"
   )

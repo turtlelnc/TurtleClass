@@ -66,6 +66,7 @@ CMAKE_BINARY_DIR = /workspace/build
 all: CMakeFiles/TurtleClassCore.dir/all
 all: CMakeFiles/TurtleClassSecurity.dir/all
 all: CMakeFiles/TurtleClassServer.dir/all
+all: CMakeFiles/TurtleClassStorage.dir/all
 all: CMakeFiles/TurtleClassTests.dir/all
 all: CMakeFiles/AccountTests.dir/all
 .PHONY : all
@@ -78,6 +79,7 @@ preinstall:
 clean: CMakeFiles/TurtleClassCore.dir/clean
 clean: CMakeFiles/TurtleClassSecurity.dir/clean
 clean: CMakeFiles/TurtleClassServer.dir/clean
+clean: CMakeFiles/TurtleClassStorage.dir/clean
 clean: CMakeFiles/TurtleClassTests.dir/clean
 clean: CMakeFiles/AccountTests.dir/clean
 .PHONY : clean
@@ -161,6 +163,32 @@ CMakeFiles/TurtleClassServer.dir/clean:
 .PHONY : CMakeFiles/TurtleClassServer.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/TurtleClassStorage.dir
+
+# All Build rule for target.
+CMakeFiles/TurtleClassStorage.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassStorage.dir/build.make CMakeFiles/TurtleClassStorage.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassStorage.dir/build.make CMakeFiles/TurtleClassStorage.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspace/build/CMakeFiles --progress-num=12,13 "Built target TurtleClassStorage"
+.PHONY : CMakeFiles/TurtleClassStorage.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/TurtleClassStorage.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspace/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/TurtleClassStorage.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspace/build/CMakeFiles 0
+.PHONY : CMakeFiles/TurtleClassStorage.dir/rule
+
+# Convenience name for target.
+TurtleClassStorage: CMakeFiles/TurtleClassStorage.dir/rule
+.PHONY : TurtleClassStorage
+
+# clean rule for target.
+CMakeFiles/TurtleClassStorage.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassStorage.dir/build.make CMakeFiles/TurtleClassStorage.dir/clean
+.PHONY : CMakeFiles/TurtleClassStorage.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/TurtleClassTests.dir
 
 # All Build rule for target.
@@ -168,7 +196,7 @@ CMakeFiles/TurtleClassTests.dir/all: CMakeFiles/TurtleClassCore.dir/all
 CMakeFiles/TurtleClassTests.dir/all: CMakeFiles/TurtleClassServer.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassTests.dir/build.make CMakeFiles/TurtleClassTests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassTests.dir/build.make CMakeFiles/TurtleClassTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspace/build/CMakeFiles --progress-num=12,13,14 "Built target TurtleClassTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/workspace/build/CMakeFiles --progress-num=14,15,16 "Built target TurtleClassTests"
 .PHONY : CMakeFiles/TurtleClassTests.dir/all
 
 # Build rule for subdir invocation for target.
