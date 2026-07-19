@@ -38,8 +38,22 @@ target_include_directories(TurtleClassStorage PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
 target_link_libraries(TurtleClassStorage PUBLIC SQLite::SQLite3)
 target_compile_features(TurtleClassStorage PUBLIC cxx_std_23)
 
+# Windows Desktop Client (WinUI 3)
+add_executable(TurtleClassWinUI WIN32
+    src/windows/main.cpp
+    src/windows/mainwindow.cpp
+    src/windows/http_client.cpp
+    src/windows/auth_service.cpp
+    src/windows/sync_service.cpp
+)
+target_link_libraries(TurtleClassWinUI PRIVATE TurtleClassCore winhttp)
+target_compile_features(TurtleClassWinUI PUBLIC cxx_std_23)
+if(MSVC)
+    target_compile_options(TurtleClassWinUI PRIVATE /W4 /WX-)
+endif()
+
 add_executable(TurtleClassTests tests/core_tests.cpp tests/server_tests.cpp)
-target_link_libraries(TurtleClassTests PRIVATE TurtleClassCore TurtleClassServer)
+target_link_libraries(TurtleClassTests PRIVATE TurtleClassCore TurtleClassServer TurtleClassStorage)
 
 add_executable(AccountTests tests/account_tests.cpp)
 target_link_libraries(AccountTests PRIVATE TurtleClassServer)
