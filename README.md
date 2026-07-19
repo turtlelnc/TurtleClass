@@ -1,16 +1,23 @@
 # TurtleClass
 
-TurtleClass 是一个仅供单个班级使用、计划开源的班级积分与互动系统。
+[![Phase 1 Complete](https://img.shields.io/badge/Phase%201-Core-green)](docs/02_Phases/PHASE_1_CORE.md)
+[![Phase 2 Complete](https://img.shields.io/badge/Phase%202-Server-green)](docs/02_Phases/PHASE_2_SERVER.md)
+[![Phase 3 Complete](https://img.shields.io/badge/Phase%203-WinUI%203-green)](docs/02_Phases/PHASE_3_WINUI.md)
+[![Security Hardened](https://img.shields.io/badge/Security-P0%2FP1%20Fixed-brightgreen)](docs/00_Project/SECURITY_AUDIT.md)
+[![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
+
+**TurtleClass** 是一个仅供单个班级使用、计划开源的班级积分与互动系统。采用 WinUI 3 构建现代化 Windows 客户端。
 
 项目采用：
 
-- C++23
+- C++23 (服务器端)
+- .NET 8 + WinUI 3 (Windows 客户端)
 - 离线优先
 - 事件驱动
 - 多设备同步
 - 可审计、可重建、可恢复
 - macOS/Linux 服务端
-- **Windows Win32 C++ 客户端**（原生 API，低性能优化）
+- **Windows WinUI 3 客户端**（MVVM 架构，Fluent Design）
 - Cloudflare Tunnel 作为公网入口
 - DeepSeek API 作为辅助审查工具
 
