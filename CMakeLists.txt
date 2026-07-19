@@ -40,11 +40,12 @@ target_compile_features(TurtleClassStorage PUBLIC cxx_std_23)
 
 # Windows Desktop Client (WinUI 3)
 add_executable(TurtleClassWinUI WIN32
-    src/windows/main.cpp
-    src/windows/mainwindow.cpp
-    src/windows/http_client.cpp
-    src/windows/auth_service.cpp
-    src/windows/sync_service.cpp
+    src/winui/TurtleClass.WindowsDesktop/main.cpp
+    src/winui/TurtleClass.WindowsDesktop/MainWindow.cpp
+    src/winui/TurtleClass.WindowsDesktop/HttpClient.cpp
+    src/winui/TurtleClass.WindowsDesktop/AuthenticationService.cpp
+    src/winui/TurtleClass.WindowsDesktop/SyncService.cpp
+    src/winui/TurtleClass.WindowsDesktop/StudentListViewModel.cpp
 )
 target_link_libraries(TurtleClassWinUI PRIVATE TurtleClassCore winhttp)
 target_compile_features(TurtleClassWinUI PUBLIC cxx_std_23)
