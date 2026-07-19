@@ -158,4 +158,4 @@ cd deploy/cloudflare
 
 ## 贡献
 
-[待添加]
+[Qwen Coder](coder.qwen.ai)&[Codex](chatgpt.com/codex/cloud)
