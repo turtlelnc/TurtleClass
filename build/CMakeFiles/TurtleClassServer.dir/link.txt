@@ -1,0 +1,2 @@
+/usr/bin/ar qc libTurtleClassServer.a CMakeFiles/TurtleClassServer.dir/src/server/server.cpp.o CMakeFiles/TurtleClassServer.dir/src/server/accounts.cpp.o CMakeFiles/TurtleClassServer.dir/src/server/snapshot.cpp.o
+/usr/bin/ranlib libTurtleClassServer.a

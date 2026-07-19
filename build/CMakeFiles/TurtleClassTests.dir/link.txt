@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/TurtleClassTests.dir/tests/core_tests.cpp.o CMakeFiles/TurtleClassTests.dir/tests/server_tests.cpp.o -o TurtleClassTests  libTurtleClassCore.a libTurtleClassServer.a libTurtleClassCore.a 

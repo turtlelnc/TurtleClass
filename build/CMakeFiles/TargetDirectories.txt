@@ -1,0 +1,8 @@
+/workspace/build/CMakeFiles/TurtleClassCore.dir
+/workspace/build/CMakeFiles/TurtleClassSecurity.dir
+/workspace/build/CMakeFiles/TurtleClassServer.dir
+/workspace/build/CMakeFiles/TurtleClassTests.dir
+/workspace/build/CMakeFiles/AccountTests.dir
+/workspace/build/CMakeFiles/test.dir
+/workspace/build/CMakeFiles/edit_cache.dir
+/workspace/build/CMakeFiles/rebuild_cache.dir

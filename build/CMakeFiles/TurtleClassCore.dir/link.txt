@@ -1,0 +1,2 @@
+/usr/bin/ar qc libTurtleClassCore.a CMakeFiles/TurtleClassCore.dir/src/core/domain.cpp.o
+/usr/bin/ranlib libTurtleClassCore.a
