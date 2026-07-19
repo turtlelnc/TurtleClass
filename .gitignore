@@ -1,11 +1,7 @@
 ```
 # Build artifacts
-build/
-CMakeCache.txt
+build/CMakeCache.txt
 CMakeFiles/
-
-# Dependencies
-third_party/
 
 # Logs
 *.log

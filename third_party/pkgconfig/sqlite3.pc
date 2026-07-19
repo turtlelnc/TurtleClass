@@ -1,0 +1,11 @@
+prefix=${THIRD_PARTY_DIR}/sqlite
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: sqlite3
+Version: 3.46.0
+Description: SQLite is a C library that implements an SQL database engine
+
+Libs: -L${libdir} -lsqlite3
+Cflags: -I${includedir}

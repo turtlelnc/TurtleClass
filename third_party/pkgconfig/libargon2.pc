@@ -1,0 +1,12 @@
+prefix=${THIRD_PARTY_DIR}/argon2
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libargon2
+Version: 20190702
+Description: The password hash Argon2
+
+Libs: -L${libdir} -largon2
+Libs.private: -lrt -ldl
+Cflags: -I${includedir}
