@@ -1,0 +1,46 @@
+# Cloudflare Tunnel Configuration for TurtleClass Server
+# 用于将 TurtleClass 服务器安全地暴露到互联网
+
+version: 2.0
+
+tunnels:
+  # 隧道 ID（需要使用 cloudflared tunnel create 命令创建后替换）
+  turtleclass-prod:
+    # 隧道访问令牌（需要使用 cloudflared tunnel token 命令生成后替换）
+    credentials-file: /etc/cloudflared/credentials.json
+    
+    ingress:
+      # 健康检查端点 - 始终允许
+      - hostname: health.turtleclass.example.com
+        service: http://localhost:8080/health
+        
+      # 主 API 服务
+      - hostname: api.turtleclass.example.com
+        service: http://localhost:8080
+        path: /api/v1/*
+        
+      # WebSocket 同步端点（如果需要）
+      - hostname: sync.turtleclass.example.com
+        service: http://localhost:8080
+        path: /ws/*
+        
+      # 默认规则 - 拒绝其他所有请求
+      - service: http_status:404
+
+# 日志配置
+logfile: /var/log/cloudflared/tunnel.log
+loglevel: info
+
+# 指标端点（用于监控）
+metrics: 127.0.0.1:2000
+
+# 连接配置
+no-autoupdate: true
+
+# TLS 配置
+originRequest:
+  noTLSVerify: false
+  connectTimeout: 30s
+  idleTimeout: 90s
+
+```

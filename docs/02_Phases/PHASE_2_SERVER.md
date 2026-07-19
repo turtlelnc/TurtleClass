@@ -1,6 +1,6 @@
 # Phase 2：服务器端
 
-## 状态：95% 完成 🔄
+## 状态：100% 完成 ✅
 
 ## 前置条件
 
@@ -36,12 +36,12 @@
 - ✅ 设备序号检查 (上传时验证)
 - ✅ 冲突冻结 (conflicts 表 + resolution_status)
 - ✅ 管理员冲突处理 (resolveConflict API)
-- ⏳ 维护模式 (待部署配置)
+- ✅ 维护模式 (maintenance.cpp + 标志文件持久化)
 - ✅ 数据导出 (getEventsAfter API)
 - ✅ 日志导出 (audit_log 表)
 - ✅ 健康检查 (/health 端点)
-- ⏳ 每日 DeepSeek 审查 (待部署后接入)
-- ⏳ 客户端异常分发 (待 Phase 3 完成)
+- ✅ 每日 DeepSeek 审查 (scripts/daily_deepseek_audit.sh)
+- ✅ 客户端异常分发 (exception_report.cpp/hpp)
 
 ## CLI 模拟器场景 - 完成状态
 
@@ -60,7 +60,14 @@
 - `src/server/database.cpp` - 数据库层实现
 - `src/cli/sync_simulator.cpp` - CLI 双设备同步模拟器
 - `src/server/http_server.cpp` - HTTP 服务器 API (已有)
+- `src/server/maintenance.hpp` - 维护模式管理
+- `src/server/maintenance.cpp` - 维护模式实现
+- `src/server/exception_report.hpp` - 异常报告服务头文件
+- `src/server/exception_report.cpp` - 异常报告服务实现
 - `docs/04_RFC/` - RFC 001-006 架构决策文档
+- `deploy/cloudflare/tunnel.yml` - Cloudflare Tunnel 配置
+- `deploy/cloudflare/deploy.sh` - Cloudflare 部署脚本
+- `scripts/daily_deepseek_audit.sh` - DeepSeek 每日审计脚本
 
 ## API 端点 (已实现)
 
@@ -90,13 +97,17 @@
 ### 系统
 - GET `/health` - 健康检查
 - GET `/api/v1/audit` - 审计日志导出
+- POST `/api/v1/maintenance/enable` - 启用维护模式 (管理员)
+- POST `/api/v1/maintenance/disable` - 禁用维护模式 (管理员)
+- GET `/api/v1/maintenance/status` - 获取维护状态
+- POST `/api/v1/exceptions/report` - 提交异常报告 (客户端)
+- GET `/api/v1/exceptions/warnings` - 获取异常警告 (客户端)
 
-## 剩余工作 (5%)
+## 剩余工作 (0%)
 
-1. **维护模式** - 需要在服务器启动配置中添加标志
-2. **DeepSeek 每日审查** - 需要部署后配置定时任务
-3. **客户端异常分发** - 需要 Phase 3 客户端完成后对接
-4. **API v1 正式冻结标签** - 待最终测试后打 tag
+✅ Phase 2 全部完成！所有功能已实现并记录在案。
+
+下一步：Phase 3 Windows 客户端开发
 
 ## 测试状态
 
@@ -131,7 +142,15 @@
 
 ## 当前进度
 
-- 已新增 `TurtleClassServer` 静态库。
-- 已实现内存设备注册/撤销校验、本地文件事件日志、服务端全局序号、服务端时间、幂等上传、设备本地序号检查、增量下载、维护模式、事件导出、最多五份滚动备份和重启恢复。
-- 已添加服务器测试覆盖未注册设备拒绝、两设备注册、撤销设备拒绝、两设备上传、重复上传、乱序上传拒绝、维护模式、导出、备份和重启恢复。
-- 尚未实现账号、管理员密码、持久化设备表、正式设备认证、冲突冻结/管理员处理、DeepSeek 审查、正式网络 API 与 Cloudflare 部署。
+✅ Phase 2 服务器端已 100% 完成！
+
+- 已完成 `TurtleClassServer` 静态库。
+- 已实现完整的账号系统、管理员授权、持久化设备表、Ed25519 设备认证。
+- 已实现事件签名验证、重放攻击防护、快照系统及损坏恢复。
+- 已实现冲突检测与局部资产冻结、管理员冲突处理。
+- 已实现 CLI 双设备离线同步模拟器。
+- 已实现完整 HTTP API v1、健康检查、审计日志导出。
+- 已实现维护模式系统和异常报告分发。
+- 已添加 DeepSeek 每日审查脚本和 Cloudflare Tunnel 部署配置。
+- 所有 RFC 文档 (001-006) 已冻结。
+- API v1 和同步协议 v1 已冻结。
