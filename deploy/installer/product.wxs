@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="TurtleClass" Language="1033" Version="2.0.0" Manufacturer="TurtleLnc" UpgradeCode="*">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of TurtleClass is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+    <Feature Id="ProductFeature" Title="TurtleClass" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="ApplicationShortcut" />
+    </Feature>
+    <UI>
+      <UIRef Id="WixUI_Minimal" />
+    </UI>
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <Property Id="PREVIOUSVERSIONSINSTALLED" Secure="yes" />
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="TurtleClass" />
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="TurtleClass" />
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="MainExecutable" Guid="*">
+        <File Id="TurtleClassDesktop.exe" Source="$(var.TurtleClassDesktopPath)" KeyPath="yes" />
+      </Component>
+      <Component Id="StorageLibrary" Guid="*">
+        <File Id="TurtleClassStorage.dll" Source="$(var.TurtleClassStoragePath)" KeyPath="yes" />
+      </Component>
+      <Component Id="SQLiteDLL" Guid="*">
+        <File Id="sqlite3.dll" Source="$(var.SQLitePath)" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+
+    <Component Id="ApplicationShortcut" Directory="ApplicationProgramsFolder" Guid="*">
+      <Shortcut Id="ApplicationStartMenuShortcut" 
+                Name="TurtleClass" 
+                Description="TurtleClass Classroom Management" 
+                Target="[INSTALLFOLDER]TurtleClassDesktop.exe" 
+                WorkingDirectory="INSTALLFOLDER" />
+      <RemoveFolder Id="CleanUpShortCut" Directory="ApplicationProgramsFolder" On="uninstall" />
+      <RegistryValue Root="HKCU" Key="Software\TurtleLnc\TurtleClass" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+    </Component>
+  </Fragment>
+</Wix>
