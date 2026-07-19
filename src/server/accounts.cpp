@@ -1,10 +1,13 @@
 #include "TurtleClass/Server/accounts.hpp"
-
+#include <sodium.h>
+#include <argon2.h>
 #include <chrono>
 #include <sstream>
 #include <iomanip>
 #include <stdexcept>
 #include <algorithm>
+#include <random>
+#include <cstring>
 
 namespace turtleclass::server {
 
@@ -14,38 +17,85 @@ std::int64_t now_unix() {
         std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
-// Simple hash simulation for Phase 2 alpha (to be replaced with Argon2id)
-std::string simple_hash(const std::string& input, const std::string& salt) {
-    std::string combined = salt + input + salt;
-    std::hash<std::string> hasher;
-    auto hash_val = hasher(combined);
+// Generate a random salt (16 bytes)
+std::string generate_salt() {
+    std::vector<unsigned char> salt(16);
+    randombytes_buf(salt.data(), salt.size());
+    
     std::stringstream ss;
-    ss << std::hex << std::setfill('0') << std::setw(16) << hash_val;
-    return "argon2id$placeholder$" + salt + "$" + ss.str();
+    for (auto byte : salt) {
+        ss << std::hex << std::setfill('0') << std::setw(2) << static_cast<int>(byte);
+    }
+    return ss.str();
 }
 
-bool verify_simple_hash(const std::string& input, const std::string& stored_hash) {
-    // Parse stored hash format: argon2id$placeholder$salt$hash
-    auto pos1 = stored_hash.find('$');
+// Argon2id hash - production ready
+std::string argon2id_hash(const std::string& password, const std::string& salt) {
+    // Argon2id parameters for password hashing (OWASP recommendations)
+    // Memory: 64 MB, Iterations: 3, Parallelism: 4
+    const uint32_t memory_cost = 65536;  // 64 MB in KB
+    const uint32_t time_cost = 3;
+    const uint32_t parallelism = 4;
+    const uint32_t hash_len = 32;  // 256-bit hash
+    
+    std::string hashed_output(hash_len, '\0');
+    
+    int result = argon2id_hash(
+        hashed_output.data(),
+        password.c_str(),
+        password.size(),
+        salt.c_str(),
+        salt.size(),
+        time_cost,
+        memory_cost,
+        parallelism,
+        hash_len
+    );
+    
+    if (result != ARGON2_OK) {
+        throw std::runtime_error("Argon2id hashing failed: " + std::string(argon2_error_message(result)));
+    }
+    
+    // Convert hash to hex
+    std::stringstream ss;
+    for (unsigned char c : hashed_output) {
+        ss << std::hex << std::setfill('0') << std::setw(2) << static_cast<int>(c);
+    }
+    
+    // Format: $argon2id$v=19$m=65536,t=3,p=4$salt$hash
+    return "$argon2id$v=19$m=65536,t=3,p=4$" + salt + "$" + ss.str();
+}
+
+bool verify_argon2id_hash(const std::string& password, const std::string& stored_hash) {
+    // Parse stored hash format: $argon2id$v=19$m=65536,t=3,p=4$salt$hash
+    if (stored_hash.find("$argon2id$") != 0) {
+        return false;
+    }
+    
+    // Find salt and hash positions
+    auto pos1 = stored_hash.find('$', 10);  // Skip "$argon2id$"
     if (pos1 == std::string::npos) return false;
     auto pos2 = stored_hash.find('$', pos1 + 1);
     if (pos2 == std::string::npos) return false;
     auto pos3 = stored_hash.find('$', pos2 + 1);
     if (pos3 == std::string::npos) return false;
     
-    // Salt is between second and third $
+    // Extract salt (between second and third $)
     std::string salt = stored_hash.substr(pos2 + 1, pos3 - pos2 - 1);
     std::string expected_hash = stored_hash.substr(pos3 + 1);
     
-    // Recompute hash with same salt using identical logic to simple_hash
-    std::string combined = salt + input + salt;
-    std::hash<std::string> hasher;
-    auto hash_val = hasher(combined);
-    std::stringstream ss;
-    ss << std::hex << std::setfill('0') << std::setw(16) << hash_val;
-    std::string computed_hash = ss.str();
-    
-    return computed_hash == expected_hash;
+    // Re-hash with same parameters
+    try {
+        std::string computed_hash_full = argon2id_hash(password, salt);
+        // Extract just the hash part from the full format
+        auto hash_pos = computed_hash_full.rfind('$');
+        if (hash_pos == std::string::npos) return false;
+        std::string computed_hash = computed_hash_full.substr(hash_pos + 1);
+        
+        return computed_hash == expected_hash;
+    } catch (...) {
+        return false;
+    }
 }
 } // namespace
 
@@ -54,9 +104,12 @@ bool AccountStore::create_class_account(const AccountId& account_id, const std::
     if (account_id.empty() || token.empty()) return false;
     if (class_accounts_.contains(account_id)) return false;
     
+    std::string salt = generate_salt();
+    std::string token_hash = argon2id_hash(token, salt);
+    
     ClassAccount account;
     account.account_id = account_id;
-    account.token_hash = simple_hash(token, "class_salt_v1");
+    account.token_hash = token_hash;
     account.created_at_unix = now_unix();
     account.active = true;
     
@@ -69,7 +122,7 @@ bool AccountStore::verify_class_token(const AccountId& account_id, const std::st
     if (found == class_accounts_.end()) return false;
     if (!found->second.active) return false;
     
-    return verify_simple_hash(token, found->second.token_hash);
+    return verify_argon2id_hash(token, found->second.token_hash);
 }
 
 bool AccountStore::revoke_class_account(const AccountId& account_id) {
@@ -89,9 +142,12 @@ bool AccountStore::create_admin_account(const AdminId& admin_id, const std::stri
     if (admin_id.empty() || password.empty()) return false;
     if (admin_accounts_.contains(admin_id)) return false;
     
+    std::string salt = generate_salt();
+    std::string password_hash = argon2id_hash(password, salt);
+    
     AdminAccount account;
     account.admin_id = admin_id;
-    account.password_hash = simple_hash(password, "admin_salt_v1");
+    account.password_hash = password_hash;
     account.created_at_unix = now_unix();
     account.active = true;
     
@@ -104,7 +160,7 @@ bool AccountStore::verify_admin_password(const AdminId& admin_id, const std::str
     if (found == admin_accounts_.end()) return false;
     if (!found->second.active) return false;
     
-    return verify_simple_hash(password, found->second.password_hash);
+    return verify_argon2id_hash(password, found->second.password_hash);
 }
 
 bool AccountStore::revoke_admin_account(const AdminId& admin_id) {

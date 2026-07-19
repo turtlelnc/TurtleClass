@@ -1,10 +1,13 @@
 #include "TurtleClass/Security/security.hpp"
-
+#include <sodium.h>
+#include <argon2.h>
 #include <chrono>
 #include <sstream>
 #include <iomanip>
 #include <stdexcept>
 #include <algorithm>
+#include <random>
+#include <cstring>
 
 namespace turtleclass::security {
 
@@ -14,34 +17,87 @@ std::int64_t now_unix() {
         std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
-// Simple hash simulation for Phase 2 alpha (to be replaced with Argon2id)
-// This is a placeholder - in production, use libsodium's argon2id implementation
-std::string simple_hash(const std::string& input, const std::string& salt) {
-    std::string combined = salt + input + salt;
-    std::hash<std::string> hasher;
-    auto hash_val = hasher(combined);
+// Generate a random salt (16 bytes) using libsodium's CSPRNG
+std::string generate_salt() {
+    std::vector<unsigned char> salt(16);
+    randombytes_buf(salt.data(), salt.size());
+    
     std::stringstream ss;
-    ss << std::hex << std::setfill('0') << std::setw(16) << hash_val;
-    return "argon2id$placeholder$" + salt + "$" + ss.str();
+    for (auto byte : salt) {
+        ss << std::hex << std::setfill('0') << std::setw(2) << static_cast<int>(byte);
+    }
+    return ss.str();
 }
 
-bool verify_simple_hash(const std::string& input, const std::string& stored_hash) {
-    // Parse stored hash format: argon2id$...$salt$hash
-    auto pos1 = stored_hash.find('$');
+// Argon2id hash - production ready with libsodium
+std::string argon2id_hash(const std::string& password, const std::string& salt) {
+    // Argon2id parameters for password hashing (OWASP recommendations)
+    // Memory: 64 MB, Iterations: 3, Parallelism: 4
+    const uint32_t memory_cost = 65536;  // 64 MB in KB
+    const uint32_t time_cost = 3;
+    const uint32_t parallelism = 4;
+    const uint32_t hash_len = 32;  // 256-bit hash
+    
+    std::string hashed_output(hash_len, '\0');
+    
+    int result = argon2id_hash(
+        hashed_output.data(),
+        password.c_str(),
+        password.size(),
+        salt.c_str(),
+        salt.size(),
+        time_cost,
+        memory_cost,
+        parallelism,
+        hash_len
+    );
+    
+    if (result != ARGON2_OK) {
+        throw std::runtime_error("Argon2id hashing failed: " + std::string(argon2_error_message(result)));
+    }
+    
+    // Convert hash to hex
+    std::stringstream ss;
+    for (unsigned char c : hashed_output) {
+        ss << std::hex << std::setfill('0') << std::setw(2) << static_cast<int>(c);
+    }
+    
+    // Format: $argon2id$v=19$m=65536,t=3,p=4$salt$hash
+    return "$argon2id$v=19$m=65536,t=3,p=4$" + salt + "$" + ss.str();
+}
+
+bool verify_argon2id_hash(const std::string& password, const std::string& stored_hash) {
+    // Parse stored hash format: $argon2id$v=19$m=65536,t=3,p=4$salt$hash
+    if (stored_hash.find("$argon2id$") != 0) {
+        return false;
+    }
+    
+    // Find salt and hash positions
+    auto pos1 = stored_hash.find('$', 10);  // Skip "$argon2id$"
     if (pos1 == std::string::npos) return false;
     auto pos2 = stored_hash.find('$', pos1 + 1);
     if (pos2 == std::string::npos) return false;
     auto pos3 = stored_hash.find('$', pos2 + 1);
     if (pos3 == std::string::npos) return false;
     
-    std::string salt = stored_hash.substr(pos1 + 1, pos2 - pos1 - 1);
+    // Extract salt (between second and third $)
+    std::string salt = stored_hash.substr(pos2 + 1, pos3 - pos2 - 1);
     std::string expected_hash = stored_hash.substr(pos3 + 1);
     
-    std::string computed = simple_hash(input, salt);
-    auto computed_hash_start = computed.rfind('$');
-    if (computed_hash_start == std::string::npos) return false;
-    
-    return computed.substr(computed_hash_start + 1) == expected_hash;
+    // Re-hash with same parameters
+    try {
+        std::string computed_hash_full = argon2id_hash(password, salt);
+        // Extract just the hash part from the full format
+        auto hash_pos = computed_hash_full.rfind('$');
+        if (hash_pos == std::string::npos) return false;
+        std::string computed_hash = computed_hash_full.substr(hash_pos + 1);
+        
+        // Constant-time comparison to prevent timing attacks
+        return (computed_hash.length() == expected_hash.length()) &&
+               (sodium_memcmp(computed_hash.c_str(), expected_hash.c_str(), computed_hash.length()) == 0);
+    } catch (...) {
+        return false;
+    }
 }
 } // namespace
 
@@ -50,9 +106,10 @@ bool AccountManager::create_class_account(const AccountId& account_id, const std
     if (account_id.empty() || token.empty()) return false;
     if (class_accounts_.contains(account_id)) return false;  // Already exists
     
+    std::string salt = generate_salt();
     AccountCredentials creds;
     creds.account_id = account_id;
-    creds.token_hash = hash_argon2id(token, "class_salt_v1");
+    creds.token_hash = argon2id_hash(token, salt);
     creds.created_at_unix = now_unix();
     creds.active = true;
     
@@ -85,9 +142,10 @@ bool AccountManager::create_admin_account(const AdminId& admin_id, const std::st
     if (admin_id.empty() || password.empty()) return false;
     if (admin_accounts_.contains(admin_id)) return false;  // Already exists
     
+    std::string salt = generate_salt();
     AdminCredentials creds;
     creds.admin_id = admin_id;
-    creds.password_hash = hash_argon2id(password, "admin_salt_v1");
+    creds.password_hash = argon2id_hash(password, salt);
     creds.created_at_unix = now_unix();
     creds.active = true;
     
@@ -126,11 +184,11 @@ std::vector<AdminCredentials> AccountManager::all_admins() const {
 }
 
 std::string AccountManager::hash_argon2id(const std::string& input, const std::string& salt) const {
-    return simple_hash(input, salt);
+    return argon2id_hash(input, salt);
 }
 
 bool AccountManager::verify_argon2id(const std::string& input, const std::string& hash) const {
-    return verify_simple_hash(input, hash);
+    return verify_argon2id_hash(input, hash);
 }
 
 // DeviceRegistry implementation
@@ -196,19 +254,29 @@ bool SignatureVerifier::verify_ed25519(
     const std::vector<std::uint8_t>& signature,
     const std::vector<std::uint8_t>& public_key
 ) {
-    // Placeholder implementation - to be replaced with libsodium
-    // For Phase 2 alpha, we'll accept any non-empty signature as valid
-    // This allows testing the flow before integrating actual crypto
-    
+    // Validate input sizes
     if (data.empty() || signature.empty() || public_key.empty()) {
         return false;
     }
     
-    // TODO: Implement actual Ed25519 verification using libsodium
-    // crypto_sign_verify_detached(signature.data(), data.data(), data.size(), public_key.data())
+    // Ed25519 signatures are 64 bytes, public keys are 32 bytes
+    if (signature.size() != crypto_sign_BYTES) {
+        return false;
+    }
+    if (public_key.size() != crypto_sign_PUBLICKEYBYTES) {
+        return false;
+    }
     
-    // For now, return true to allow development flow
-    return true;
+    // Use libsodium's Ed25519 verification
+    // crypto_sign_verify_detached returns 0 on success, -1 on failure
+    int result = crypto_sign_verify_detached(
+        signature.data(),
+        data.data(),
+        data.size(),
+        public_key.data()
+    );
+    
+    return (result == 0);
 }
 
 std::vector<std::uint8_t> SignatureVerifier::hex_to_bytes(const std::string& hex) {
