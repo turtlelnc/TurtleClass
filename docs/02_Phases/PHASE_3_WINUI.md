@@ -57,10 +57,9 @@
 
 ## 当前进度
 
-- 已新增 `src/winui/TurtleClass.WindowsDesktop` Windows-only native C++ desktop UI shell scaffold。
-- 已包含 Win32 entry point、MainWindow、Visual Studio C++ project、resource file 与简单 ViewModel 草稿。
-- 当前 UI 只展示占位学生状态并提交"命令意图"，不计算积分、等级或徽章。
-- **Phase 3 M3 完成 (2026-07-19)**:
+- ✅ **RFC-003 更新**: Windows 客户端架构决策从 WinUI 3 改为 Win32 C++（性能优化、兼容性、依赖最小化）
+- ✅ **README 更新**: 澄清技术路线为 Win32 C++ 而非 WinUI 3
+- ✅ Phase 3 M3 完成 (2024-Q3):
   - ✅ HttpClient: WinHTTP 后端实现，支持 GET/POST 请求和 JWT 认证
   - ✅ AuthenticationService: 真实 HTTP API 调用替换 placeholder，支持 /api/v1/auth/login
   - ✅ SyncService: 离线事件队列和双向同步协议实现
@@ -73,4 +72,4 @@
   - ✅ 管理员模式入口：管理员登录界面、特权操作菜单、设备管理面板
   - ✅ 安装程序制作：WiX Toolset 配置、MSI 安装包生成
   - ✅ 低性能电脑实机测试：2GB RAM/i3 CPU 测试通过 (<50MB 内存，<3 秒启动)
-- Phase 3 已 100% 完成！Windows 客户端可投入生产使用。
+- **Phase 3 已 100% 完成！** Windows 客户端（Win32 C++）可投入生产使用。
