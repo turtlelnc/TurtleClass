@@ -55,55 +55,60 @@ target_link_libraries(TurtleClassStorage PUBLIC SQLite::SQLite3)
 target_compile_features(TurtleClassStorage PUBLIC cxx_std_23)
 
 # Windows Desktop Client - Conditional Build
-if(WINDOWS_CLIENT STREQUAL "winui3")
-    message(STATUS "Building WinUI 3 Modern Client")
-    
-    # Find Windows App SDK for WinUI 3
-    find_package(Microsoft.WindowsAppSDK REQUIRED)
-    
-    add_executable(TurtleClassClient WIN32
-        src/windows/winui3_modern/main.cpp
-        src/windows/winui3_modern/MainWindow.cpp
-        src/windows/winui3_modern/HttpClient.cpp
-        src/windows/winui3_modern/AuthenticationService.cpp
-        src/windows/winui3_modern/SyncService.cpp
-        src/windows/winui3_modern/StudentListViewModel.cpp
-    )
-    target_link_libraries(TurtleClassClient PRIVATE 
-        TurtleClassCore 
-        TurtleClassStorage
-        winhttp
-        Microsoft.WindowsAppSDK::CppWinRT
-    )
-    target_compile_features(TurtleClassClient PUBLIC cxx_std_23)
-    
-    if(MSVC)
-        target_compile_options(TurtleClassClient PRIVATE /W4 /WX- /await)
+if(WIN32)
+    if(WINDOWS_CLIENT STREQUAL "winui3")
+        message(STATUS "Building WinUI 3 Modern Client")
+        
+        # Find Windows App SDK for WinUI 3
+        find_package(Microsoft.WindowsAppSDK REQUIRED)
+        
+        add_executable(TurtleClassClient WIN32
+            src/windows/winui3_modern/main.cpp
+            src/windows/winui3_modern/MainWindow.cpp
+            src/windows/winui3_modern/HttpClient.cpp
+            src/windows/winui3_modern/AuthenticationService.cpp
+            src/windows/winui3_modern/SyncService.cpp
+            src/windows/winui3_modern/StudentListViewModel.cpp
+        )
+        target_link_libraries(TurtleClassClient PRIVATE 
+            TurtleClassCore 
+            TurtleClassStorage
+            winhttp
+            Microsoft.WindowsAppSDK::CppWinRT
+        )
+        target_compile_features(TurtleClassClient PUBLIC cxx_std_23)
+        
+        if(MSVC)
+            target_compile_options(TurtleClassClient PRIVATE /W4 /WX- /await)
+        endif()
+        
+    elseif(WINDOWS_CLIENT STREQUAL "win32")
+        message(STATUS "Building Win32 Legacy Client")
+        
+        add_executable(TurtleClassClient WIN32
+            src/windows/win32_legacy/TurtleClass.WindowsDesktop/main.cpp
+            src/windows/win32_legacy/TurtleClass.WindowsDesktop/MainWindow.cpp
+            src/windows/win32_legacy/TurtleClass.WindowsDesktop/HttpClient.cpp
+            src/windows/win32_legacy/TurtleClass.WindowsDesktop/AuthenticationService.cpp
+            src/windows/win32_legacy/TurtleClass.WindowsDesktop/SyncService.cpp
+            src/windows/win32_legacy/TurtleClass.WindowsDesktop/StudentListViewModel.cpp
+        )
+        target_link_libraries(TurtleClassClient PRIVATE 
+            TurtleClassCore 
+            TurtleClassStorage
+            winhttp
+        )
+        target_compile_features(TurtleClassClient PUBLIC cxx_std_23)
+        
+        if(MSVC)
+            target_compile_options(TurtleClassClient PRIVATE /W4 /WX-)
+        endif()
+        
+    else()
+        message(FATAL_ERROR "Unknown WINDOWS_CLIENT type: ${WINDOWS_CLIENT}. Use 'win32' or 'winui3'.")
     endif()
-    
-elseif(WINDOWS_CLIENT STREQUAL "win32")
-    message(STATUS "Building Win32 Legacy Client")
-    
-    add_executable(TurtleClassClient WIN32
-        src/windows/win32_legacy/main.cpp
-        src/windows/win32_legacy/MainWindow.cpp
-        src/windows/win32_legacy/HttpClient.cpp
-        src/windows/win32_legacy/AuthenticationService.cpp
-        src/windows/win32_legacy/SyncService.cpp
-    )
-    target_link_libraries(TurtleClassClient PRIVATE 
-        TurtleClassCore 
-        TurtleClassStorage
-        winhttp
-    )
-    target_compile_features(TurtleClassClient PUBLIC cxx_std_23)
-    
-    if(MSVC)
-        target_compile_options(TurtleClassClient PRIVATE /W4 /WX-)
-    endif()
-    
 else()
-    message(FATAL_ERROR "Unknown WINDOWS_CLIENT type: ${WINDOWS_CLIENT}. Use 'win32' or 'winui3'.")
+    message(STATUS "Not on Windows, skipping Windows client build")
 endif()
 
 add_executable(TurtleClassTests tests/core_tests.cpp tests/server_tests.cpp)
@@ -112,8 +117,10 @@ target_link_libraries(TurtleClassTests PRIVATE TurtleClassCore TurtleClassServer
 add_executable(AccountTests tests/account_tests.cpp)
 target_link_libraries(AccountTests PRIVATE TurtleClassServer)
 
-add_executable(SyncSimulator src/cli/sync_simulator.cpp)
-target_link_libraries(SyncSimulator PRIVATE TurtleClassCore TurtleClassSecurity)
+# SyncSimulator disabled - missing dependencies (core/event.hpp, crypto/signer.hpp)
+# add_executable(SyncSimulator src/cli/sync_simulator.cpp)
+# target_link_libraries(SyncSimulator PRIVATE TurtleClassCore TurtleClassSecurity TurtleClassServer)
+# target_include_directories(SyncSimulator PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 enable_testing()
 add_test(NAME TurtleClassTests COMMAND TurtleClassTests)

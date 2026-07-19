@@ -40,15 +40,15 @@ std::string argon2id_hash(const std::string& password, const std::string& salt) 
     
     std::string hashed_output(hash_len, '\0');
     
-    int result = argon2id_hash(
-        hashed_output.data(),
+    int result = argon2id_hash_raw(
+        time_cost,
+        memory_cost,
+        parallelism,
         password.c_str(),
         password.size(),
         salt.c_str(),
         salt.size(),
-        time_cost,
-        memory_cost,
-        parallelism,
+        hashed_output.data(),
         hash_len
     );
     

@@ -1,60 +1,12 @@
 ```
-# CMake build artifacts
+# Build artifacts
 build/
 CMakeCache.txt
 CMakeFiles/
-Makefile
-cmake_install.cmake
-CTestTestfile.cmake
 
-# Compiled objects
-*.o
-*.obj
-*.a
-*.lib
-*.so
-*.dylib
-*.dll
-*.exe
+# Dependencies
+third_party/
 
 # Logs
 *.log
-CMakeFiles/*/CMakeOutput.log
-
-# Temporary files
-*.tmp
-*.swp
-
-# IDE files
-.vscode/
-.idea/
-
-# Environment
-.env
-.env.local
-*.env.*
-
-# Coverage
-coverage/
-htmlcov/
-.coverage
-
-# Python specific
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-*.so
-.Pytest_cache/
-
-# Node.js specific
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Distribution / packaging
-.DS_Store
-Thumbs.db
 ```

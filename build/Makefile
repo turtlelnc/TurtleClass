@@ -204,6 +204,43 @@ AccountTests/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AccountTests.dir/build.make CMakeFiles/AccountTests.dir/build
 .PHONY : AccountTests/fast
 
+#=============================================================================
+# Target rules for targets named SyncSimulator
+
+# Build rule for target.
+SyncSimulator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SyncSimulator
+.PHONY : SyncSimulator
+
+# fast build rule for target.
+SyncSimulator/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SyncSimulator.dir/build.make CMakeFiles/SyncSimulator.dir/build
+.PHONY : SyncSimulator/fast
+
+src/cli/sync_simulator.o: src/cli/sync_simulator.cpp.o
+.PHONY : src/cli/sync_simulator.o
+
+# target to build an object file
+src/cli/sync_simulator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SyncSimulator.dir/build.make CMakeFiles/SyncSimulator.dir/src/cli/sync_simulator.cpp.o
+.PHONY : src/cli/sync_simulator.cpp.o
+
+src/cli/sync_simulator.i: src/cli/sync_simulator.cpp.i
+.PHONY : src/cli/sync_simulator.i
+
+# target to preprocess a source file
+src/cli/sync_simulator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SyncSimulator.dir/build.make CMakeFiles/SyncSimulator.dir/src/cli/sync_simulator.cpp.i
+.PHONY : src/cli/sync_simulator.cpp.i
+
+src/cli/sync_simulator.s: src/cli/sync_simulator.cpp.s
+.PHONY : src/cli/sync_simulator.s
+
+# target to generate assembly for a file
+src/cli/sync_simulator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SyncSimulator.dir/build.make CMakeFiles/SyncSimulator.dir/src/cli/sync_simulator.cpp.s
+.PHONY : src/cli/sync_simulator.cpp.s
+
 src/core/domain.o: src/core/domain.cpp.o
 .PHONY : src/core/domain.o
 
@@ -276,6 +313,54 @@ src/server/accounts.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassServer.dir/build.make CMakeFiles/TurtleClassServer.dir/src/server/accounts.cpp.s
 .PHONY : src/server/accounts.cpp.s
 
+src/server/database.o: src/server/database.cpp.o
+.PHONY : src/server/database.o
+
+# target to build an object file
+src/server/database.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassServer.dir/build.make CMakeFiles/TurtleClassServer.dir/src/server/database.cpp.o
+.PHONY : src/server/database.cpp.o
+
+src/server/database.i: src/server/database.cpp.i
+.PHONY : src/server/database.i
+
+# target to preprocess a source file
+src/server/database.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassServer.dir/build.make CMakeFiles/TurtleClassServer.dir/src/server/database.cpp.i
+.PHONY : src/server/database.cpp.i
+
+src/server/database.s: src/server/database.cpp.s
+.PHONY : src/server/database.s
+
+# target to generate assembly for a file
+src/server/database.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassServer.dir/build.make CMakeFiles/TurtleClassServer.dir/src/server/database.cpp.s
+.PHONY : src/server/database.cpp.s
+
+src/server/exception_report.o: src/server/exception_report.cpp.o
+.PHONY : src/server/exception_report.o
+
+# target to build an object file
+src/server/exception_report.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassServer.dir/build.make CMakeFiles/TurtleClassServer.dir/src/server/exception_report.cpp.o
+.PHONY : src/server/exception_report.cpp.o
+
+src/server/exception_report.i: src/server/exception_report.cpp.i
+.PHONY : src/server/exception_report.i
+
+# target to preprocess a source file
+src/server/exception_report.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassServer.dir/build.make CMakeFiles/TurtleClassServer.dir/src/server/exception_report.cpp.i
+.PHONY : src/server/exception_report.cpp.i
+
+src/server/exception_report.s: src/server/exception_report.cpp.s
+.PHONY : src/server/exception_report.s
+
+# target to generate assembly for a file
+src/server/exception_report.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassServer.dir/build.make CMakeFiles/TurtleClassServer.dir/src/server/exception_report.cpp.s
+.PHONY : src/server/exception_report.cpp.s
+
 src/server/http_server.o: src/server/http_server.cpp.o
 .PHONY : src/server/http_server.o
 
@@ -299,6 +384,30 @@ src/server/http_server.s: src/server/http_server.cpp.s
 src/server/http_server.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassServer.dir/build.make CMakeFiles/TurtleClassServer.dir/src/server/http_server.cpp.s
 .PHONY : src/server/http_server.cpp.s
+
+src/server/maintenance.o: src/server/maintenance.cpp.o
+.PHONY : src/server/maintenance.o
+
+# target to build an object file
+src/server/maintenance.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassServer.dir/build.make CMakeFiles/TurtleClassServer.dir/src/server/maintenance.cpp.o
+.PHONY : src/server/maintenance.cpp.o
+
+src/server/maintenance.i: src/server/maintenance.cpp.i
+.PHONY : src/server/maintenance.i
+
+# target to preprocess a source file
+src/server/maintenance.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassServer.dir/build.make CMakeFiles/TurtleClassServer.dir/src/server/maintenance.cpp.i
+.PHONY : src/server/maintenance.cpp.i
+
+src/server/maintenance.s: src/server/maintenance.cpp.s
+.PHONY : src/server/maintenance.s
+
+# target to generate assembly for a file
+src/server/maintenance.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TurtleClassServer.dir/build.make CMakeFiles/TurtleClassServer.dir/src/server/maintenance.cpp.s
+.PHONY : src/server/maintenance.cpp.s
 
 src/server/server.o: src/server/server.cpp.o
 .PHONY : src/server/server.o
@@ -454,11 +563,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... AccountTests"
+	@echo "... SyncSimulator"
 	@echo "... TurtleClassCore"
 	@echo "... TurtleClassSecurity"
 	@echo "... TurtleClassServer"
 	@echo "... TurtleClassStorage"
 	@echo "... TurtleClassTests"
+	@echo "... src/cli/sync_simulator.o"
+	@echo "... src/cli/sync_simulator.i"
+	@echo "... src/cli/sync_simulator.s"
 	@echo "... src/core/domain.o"
 	@echo "... src/core/domain.i"
 	@echo "... src/core/domain.s"
@@ -468,9 +581,18 @@ help:
 	@echo "... src/server/accounts.o"
 	@echo "... src/server/accounts.i"
 	@echo "... src/server/accounts.s"
+	@echo "... src/server/database.o"
+	@echo "... src/server/database.i"
+	@echo "... src/server/database.s"
+	@echo "... src/server/exception_report.o"
+	@echo "... src/server/exception_report.i"
+	@echo "... src/server/exception_report.s"
 	@echo "... src/server/http_server.o"
 	@echo "... src/server/http_server.i"
 	@echo "... src/server/http_server.s"
+	@echo "... src/server/maintenance.o"
+	@echo "... src/server/maintenance.i"
+	@echo "... src/server/maintenance.s"
 	@echo "... src/server/server.o"
 	@echo "... src/server/server.i"
 	@echo "... src/server/server.s"

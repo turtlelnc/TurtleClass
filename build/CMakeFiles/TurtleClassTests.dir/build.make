@@ -110,7 +110,10 @@ TurtleClassTests: CMakeFiles/TurtleClassTests.dir/tests/server_tests.cpp.o
 TurtleClassTests: CMakeFiles/TurtleClassTests.dir/build.make
 TurtleClassTests: libTurtleClassCore.a
 TurtleClassTests: libTurtleClassServer.a
+TurtleClassTests: libTurtleClassStorage.a
+TurtleClassTests: libTurtleClassSecurity.a
 TurtleClassTests: libTurtleClassCore.a
+TurtleClassTests: /usr/lib/x86_64-linux-gnu/libsqlite3.so
 TurtleClassTests: CMakeFiles/TurtleClassTests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable TurtleClassTests"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TurtleClassTests.dir/link.txt --verbose=$(VERBOSE)
