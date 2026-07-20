@@ -1,9 +1,12 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.ObjectModel;
+using Windows.UI;
 
 namespace TurtleClassWinUI;
 
@@ -375,17 +378,17 @@ public class StudentViewModel
 
 public record PointsAdjustment(int Points, string Reason);
 
-public class StringToBrushConverter : Microsoft.UI.Xaml.Data.IValueConverter
+public class StringToBrushConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, string language)
     {
         if (value is string colorName)
         {
-            return new Microsoft.UI.Xaml.Media.SolidColorBrush(
-                (Microsoft.UI.Color)Microsoft.UI.Xaml.Markup.XamlBindingHelper.ConvertValue(
-                    typeof(Microsoft.UI.Color), colorName));
+            return new SolidColorBrush(
+                (Color)XamlBindingHelper.ConvertValue(
+                    typeof(Color), colorName));
         }
-        return new Microsoft.UI.Xaml.Media.SolidColorBrush(Microsoft.UI.Colors.Gray);
+        return new SolidColorBrush(Colors.Gray);
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, string language)

@@ -201,24 +201,6 @@ public class SyncService
         return Task.CompletedTask;
     }
 
-    private Task ClearUploadedEvents(List<TurtleClassEvent> events)
-    {
-        // Remove from TurtleClassStorage SQLite database
-        return Task.CompletedTask;
-    }
-
-    private List<TurtleClassEvent> ParseEvents(JsonElement eventsElement)
-    {
-        // Parse JSON events to TurtleClassEvent objects
-        return new List<TurtleClassEvent>();
-    }
-
-    private Task StoreEventsLocally(List<TurtleClassEvent> events)
-    {
-        // Store in TurtleClassStorage SQLite database
-        return Task.CompletedTask;
-    }
-
     private Task<string> SignEventAsync(TurtleClassEvent evt)
     {
         // Sign event with Ed25519 device key

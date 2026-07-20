@@ -1,5 +1,6 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
@@ -46,8 +47,7 @@ public sealed partial class LoginPage : Page
         var classCodeLabel = new TextBlock { Text = "班级代码", Margin = new Thickness(0, 0, 0, 8) };
         var classCodeBox = new PasswordBox 
         { 
-            PlaceholderText = "请输入班级代码",
-            PasswordMinLength = 4
+            PlaceholderText = "请输入班级代码"
         };
         classCodeBox.PasswordChanged += (s, e) => _viewModel.ClassCode = classCodeBox.Password;
         formStack.Children.Add(classCodeLabel);
@@ -78,11 +78,11 @@ public sealed partial class LoginPage : Page
         loginButton.Click += async (s, e) => await _viewModel.LoginCommand.ExecuteAsync(null);
         loginButton.IsEnabled = false;
         
-        var loginBinding = new Microsoft.UI.Xaml.Data.Binding
+        var loginBinding = new Binding
         {
             Source = _viewModel,
-            Path = new Microsoft.UI.Xaml.Data.PropertyPath(nameof(LoginViewModel.CanLogin)),
-            Mode = Microsoft.UI.Xaml.Data.BindingMode.OneWay
+            Path = new PropertyPath(nameof(LoginViewModel.CanLogin)),
+            Mode = BindingMode.OneWay
         };
         loginButton.SetBinding(Button.IsEnabledProperty, loginBinding);
         
@@ -96,11 +96,11 @@ public sealed partial class LoginPage : Page
             HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Center
         };
         
-        var statusBinding = new Microsoft.UI.Xaml.Data.Binding
+        var statusBinding = new Binding
         {
             Source = _viewModel,
-            Path = new Microsoft.UI.Xaml.Data.PropertyPath(nameof(LoginViewModel.StatusMessage)),
-            Mode = Microsoft.UI.Xaml.Data.BindingMode.OneWay
+            Path = new PropertyPath(nameof(LoginViewModel.StatusMessage)),
+            Mode = BindingMode.OneWay
         };
         statusText.SetBinding(TextBlock.TextProperty, statusBinding);
         
