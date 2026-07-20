@@ -7,6 +7,7 @@ using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.ObjectModel;
 using Windows.UI;
+using Microsoft.UI;
 
 namespace TurtleClassWinUI;
 
@@ -384,9 +385,15 @@ public class StringToBrushConverter : IValueConverter
     {
         if (value is string colorName)
         {
-            return new SolidColorBrush(
-                (Color)XamlBindingHelper.ConvertValue(
-                    typeof(Color), colorName));
+            // Parse color name to Color
+            var colorType = typeof(Colors);
+            var propertyInfo = colorType.GetProperty(colorName);
+            if (propertyInfo != null)
+            {
+                var color = (Color)propertyInfo.GetValue(null)!;
+                return new SolidColorBrush(color);
+            }
+            return new SolidColorBrush(Colors.Gray);
         }
         return new SolidColorBrush(Colors.Gray);
     }

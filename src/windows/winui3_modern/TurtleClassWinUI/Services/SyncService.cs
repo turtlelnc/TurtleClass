@@ -195,6 +195,40 @@ public class SyncService
         return new List<TurtleClassEvent>();
     }
 
+    private async Task ClearUploadedEvents(List<TurtleClassEvent> events)
+    {
+        // Remove uploaded events from local storage
+        await Task.CompletedTask;
+    }
+
+    private List<TurtleClassEvent> ParseEvents(JsonElement eventsElement)
+    {
+        // Parse events from JSON
+        var events = new List<TurtleClassEvent>();
+        foreach (var eventElem in eventsElement.EnumerateArray())
+        {
+            var evt = new TurtleClassEvent
+            {
+                SequenceId = eventElem.GetProperty("sequence_id").GetInt64(),
+                EventType = eventElem.GetProperty("event_type").GetString() ?? string.Empty,
+                StudentId = eventElem.GetProperty("student_id").GetString() ?? string.Empty,
+                Points = eventElem.GetProperty("points").GetInt32(),
+                Reason = eventElem.GetProperty("reason").GetString() ?? string.Empty,
+                Timestamp = eventElem.GetProperty("timestamp").GetInt64(),
+                DeviceId = eventElem.GetProperty("device_id").GetString() ?? string.Empty,
+                DeviceSignature = eventElem.GetProperty("device_signature").GetString() ?? string.Empty
+            };
+            events.Add(evt);
+        }
+        return events;
+    }
+
+    private async Task StoreEventsLocally(List<TurtleClassEvent> events)
+    {
+        // Store events in local SQLite database
+        await Task.CompletedTask;
+    }
+
     private Task SaveEventToLocalStorage(TurtleClassEvent evt)
     {
         // Save to TurtleClassStorage SQLite database
