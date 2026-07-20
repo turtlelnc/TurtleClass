@@ -110,7 +110,7 @@ public class SyncService
         if (response.IsSuccessStatusCode)
         {
             // Remove uploaded events from local storage
-            await ClearUploadedEvents(pendingEvents);
+            await ClearUploadedEventsAsync(pendingEvents);
             return true;
         }
 
@@ -135,8 +135,8 @@ public class SyncService
             if (doc.RootElement.TryGetProperty("events", out var eventsElement))
             {
                 // Parse and store events locally
-                var newEvents = ParseEvents(eventsElement);
-                await StoreEventsLocally(newEvents);
+                var newEvents = ParseEventsFromJson(eventsElement);
+                await StoreEventsLocallyAsync(newEvents);
                 
                 // Update sequence ID
                 if (doc.RootElement.TryGetProperty("latest_sequence_id", out var seqElement))
@@ -195,13 +195,13 @@ public class SyncService
         return new List<TurtleClassEvent>();
     }
 
-    private async Task ClearUploadedEvents(List<TurtleClassEvent> events)
+    private async Task ClearUploadedEventsAsync(List<TurtleClassEvent> events)
     {
         // Remove uploaded events from local storage
         await Task.CompletedTask;
     }
 
-    private List<TurtleClassEvent> ParseEvents(JsonElement eventsElement)
+    private List<TurtleClassEvent> ParseEventsFromJson(JsonElement eventsElement)
     {
         // Parse events from JSON
         var events = new List<TurtleClassEvent>();
@@ -223,7 +223,7 @@ public class SyncService
         return events;
     }
 
-    private async Task StoreEventsLocally(List<TurtleClassEvent> events)
+    private async Task StoreEventsLocallyAsync(List<TurtleClassEvent> events)
     {
         // Store events in local SQLite database
         await Task.CompletedTask;

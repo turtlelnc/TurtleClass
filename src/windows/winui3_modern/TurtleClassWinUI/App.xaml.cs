@@ -21,4 +21,12 @@ public class App : Application
     {
         // WinUI 3 initialization
     }
+
+    [STAThread]
+    public static void Main(string[] args)
+    {
+        WinRT.ComWrappersSupport.InitializeComWrappers();
+        var app = new App();
+        app.Run(args);
+    }
 }

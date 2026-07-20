@@ -8,6 +8,7 @@ using System;
 using System.Collections.ObjectModel;
 using Windows.UI;
 using Microsoft.UI;
+using Microsoft.UI.Xaml.Markup;
 
 namespace TurtleClassWinUI;
 
@@ -76,11 +77,11 @@ public sealed partial class MainDashboardPage : Page
         // Students list
         var listView = new ListView();
         
-        var studentsBinding = new Microsoft.UI.Xaml.Data.Binding
+        var studentsBinding = new Binding
         {
             Source = _viewModel,
-            Path = new Microsoft.UI.Xaml.Data.PropertyPath(nameof(DashboardViewModel.Students)),
-            Mode = Microsoft.UI.Xaml.Data.BindingMode.OneWay
+            Path = new PropertyPath(nameof(DashboardViewModel.Students)),
+            Mode = BindingMode.OneWay
         };
         listView.SetBinding(ListView.ItemsSourceProperty, studentsBinding);
         
@@ -106,20 +107,20 @@ public sealed partial class MainDashboardPage : Page
         var studentInfoStack = new StackPanel { Spacing = 8 };
         
         var studentNameText = new TextBlock { FontSize = 20, FontWeight = Microsoft.UI.Text.FontWeights.SemiBold };
-        var nameBinding = new Microsoft.UI.Xaml.Data.Binding
+        var nameBinding = new Binding
         {
             Source = _viewModel,
-            Path = new Microsoft.UI.Xaml.Data.PropertyPath(nameof(DashboardViewModel.SelectedStudentName)),
-            Mode = Microsoft.UI.Xaml.Data.BindingMode.OneWay
+            Path = new PropertyPath(nameof(DashboardViewModel.SelectedStudentName)),
+            Mode = BindingMode.OneWay
         };
         studentNameText.SetBinding(TextBlock.TextProperty, nameBinding);
         
         var studentPointsText = new TextBlock { FontSize = 16 };
-        var pointsBinding = new Microsoft.UI.Xaml.Data.Binding
+        var pointsBinding = new Binding
         {
             Source = _viewModel,
-            Path = new Microsoft.UI.Xaml.Data.PropertyPath(nameof(DashboardViewModel.SelectedStudentPoints)),
-            Mode = Microsoft.UI.Xaml.Data.BindingMode.OneWay
+            Path = new PropertyPath(nameof(DashboardViewModel.SelectedStudentPoints)),
+            Mode = BindingMode.OneWay
         };
         studentPointsText.SetBinding(TextBlock.TextProperty, pointsBinding);
         
@@ -135,16 +136,16 @@ public sealed partial class MainDashboardPage : Page
         { 
             Minimum = -100, 
             Maximum = 100,
-            SpinButtonPlacementMode = Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode.Inline,
+            SpinButtonPlacementMode = NumberBoxSpinButtonPlacementMode.Inline,
             Width = 200,
-            HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Left
+            HorizontalAlignment = HorizontalAlignment.Left
         };
         
         var reasonBox = new TextBox 
         { 
             PlaceholderText = "原因（可选）",
             Width = 300,
-            HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Left
+            HorizontalAlignment = HorizontalAlignment.Left
         };
         
         var addPointsButton = new Button 
@@ -197,24 +198,24 @@ public sealed partial class MainDashboardPage : Page
             Width = 24,
             Height = 24,
             CornerRadius = new CornerRadius(12),
-            HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Left
+            HorizontalAlignment = HorizontalAlignment.Left
         };
         
-        var statusColorBinding = new Microsoft.UI.Xaml.Data.Binding
+        var statusColorBinding = new Binding
         {
             Source = _viewModel,
-            Path = new Microsoft.UI.Xaml.Data.PropertyPath(nameof(DashboardViewModel.SyncStatusColor)),
-            Mode = Microsoft.UI.Xaml.Data.BindingMode.OneWay,
+            Path = new PropertyPath(nameof(DashboardViewModel.SyncStatusColor)),
+            Mode = BindingMode.OneWay,
             Converter = new StringToBrushConverter()
         };
         statusCircle.SetBinding(Border.BackgroundProperty, statusColorBinding);
         
         var statusText = new TextBlock { FontSize = 16 };
-        var statusBinding = new Microsoft.UI.Xaml.Data.Binding
+        var statusBinding = new Binding
         {
             Source = _viewModel,
-            Path = new Microsoft.UI.Xaml.Data.PropertyPath(nameof(DashboardViewModel.SyncStatusText)),
-            Mode = Microsoft.UI.Xaml.Data.BindingMode.OneWay
+            Path = new PropertyPath(nameof(DashboardViewModel.SyncStatusText)),
+            Mode = BindingMode.OneWay
         };
         statusText.SetBinding(TextBlock.TextProperty, statusBinding);
         
@@ -225,11 +226,11 @@ public sealed partial class MainDashboardPage : Page
 
         // Last sync time
         var lastSyncText = new TextBlock();
-        var lastSyncBinding = new Microsoft.UI.Xaml.Data.Binding
+        var lastSyncBinding = new Binding
         {
             Source = _viewModel,
-            Path = new Microsoft.UI.Xaml.Data.PropertyPath(nameof(DashboardViewModel.LastSyncTimeText)),
-            Mode = Microsoft.UI.Xaml.Data.BindingMode.OneWay
+            Path = new PropertyPath(nameof(DashboardViewModel.LastSyncTimeText)),
+            Mode = BindingMode.OneWay
         };
         lastSyncText.SetBinding(TextBlock.TextProperty, lastSyncBinding);
         stackPanel.Children.Add(lastSyncText);
@@ -239,7 +240,7 @@ public sealed partial class MainDashboardPage : Page
         { 
             Content = "立即同步", 
             Width = 150,
-            HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Left,
+            HorizontalAlignment = HorizontalAlignment.Left,
             Margin = new Thickness(0, 10, 0, 0)
         };
         syncButton.Click += async (s, e) => await _viewModel.SyncCommand.ExecuteAsync(null);
@@ -250,15 +251,15 @@ public sealed partial class MainDashboardPage : Page
         {
             Title = "检测到冲突",
             Message = "请管理员解决数据冲突",
-            Severity = Microsoft.UI.Xaml.Controls.InfoBarSeverity.Warning,
+            Severity = InfoBarSeverity.Warning,
             IsOpen = false
         };
         
-        var conflictBinding = new Microsoft.UI.Xaml.Data.Binding
+        var conflictBinding = new Binding
         {
             Source = _viewModel,
-            Path = new Microsoft.UI.Xaml.Data.PropertyPath(nameof(DashboardViewModel.HasConflicts)),
-            Mode = Microsoft.UI.Xaml.Data.BindingMode.OneWay
+            Path = new PropertyPath(nameof(DashboardViewModel.HasConflicts)),
+            Mode = BindingMode.OneWay
         };
         conflictWarning.SetBinding(InfoBar.IsOpenProperty, conflictBinding);
         
@@ -385,9 +386,9 @@ public class StringToBrushConverter : IValueConverter
     {
         if (value is string colorName)
         {
-            // Parse color name to Color
+            // Parse color name to Color using reflection
             var colorType = typeof(Colors);
-            var propertyInfo = colorType.GetProperty(colorName);
+            var propertyInfo = colorType.GetProperty(colorName, System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
             if (propertyInfo != null)
             {
                 var color = (Color)propertyInfo.GetValue(null)!;
