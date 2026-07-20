@@ -20,7 +20,7 @@ public class SyncService
         _baseUrl = "https://api.turtleclass.com/api/v1";
         
         // Load pending events from local storage
-        LoadPendingEvents();
+        _ = LoadPendingEventsAsync();
     }
 
     public async Task<bool> SyncAsync()
@@ -186,7 +186,7 @@ public class SyncService
         }
     }
 
-    private Task<List<TurtleClassEvent>> LoadPendingEvents()
+    private Task<List<TurtleClassEvent>> LoadPendingEventsAsync()
     {
         // Load from TurtleClassStorage SQLite database
         // Return empty list for now
@@ -229,7 +229,7 @@ public class SyncService
         return Task.FromResult(true);
     }
 
-    private void LoadPendingEvents()
+    private void LoadPendingEventsFromStorage()
     {
         // Load state from local storage on startup
     }

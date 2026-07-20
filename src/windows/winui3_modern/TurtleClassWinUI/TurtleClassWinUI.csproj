@@ -32,7 +32,5 @@
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\core\TurtleClassCore.csproj" />
-  </ItemGroup>
+  <!-- Note: Core logic is implemented directly in the client, no external C++ dependency -->
 </Project>
