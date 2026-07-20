@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -85,7 +87,7 @@ public class SyncService
     public async Task<bool> UploadPendingEventsAsync()
     {
         // Load pending events from local SQLite storage
-        var pendingEvents = await LoadPendingEvents();
+        var pendingEvents = await LoadPendingEventsAsync();
         
         if (pendingEvents.Count == 0)
             return true; // Nothing to upload
@@ -186,11 +188,11 @@ public class SyncService
         }
     }
 
-    private Task<List<TurtleClassEvent>> LoadPendingEventsAsync()
+    private async Task<List<TurtleClassEvent>> LoadPendingEventsAsync()
     {
         // Load from TurtleClassStorage SQLite database
         // Return empty list for now
-        return Task.FromResult(new List<TurtleClassEvent>());
+        return new List<TurtleClassEvent>();
     }
 
     private Task SaveEventToLocalStorage(TurtleClassEvent evt)
